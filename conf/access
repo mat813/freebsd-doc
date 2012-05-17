@@ -1,0 +1,66 @@
+# $FreeBSD$
+#
+# Please try to keep the handbook (contrib/chapter.sgml authors.ent
+# staff/chapter.sgml) in in sync with this.
+#
+#       KEEP ALPHABETICALLY SORTED!!!
+#       KEEP ALPHABETICALLY SORTED!!!
+#       KEEP ALPHABETICALLY SORTED!!!
+#       KEEP ALPHABETICALLY SORTED!!!
+#
+# When adding a new committer to this file, please make sure to
+# include the following information in the commit message:
+#   (1) Who the commit bit was approved by ("Approved by: core").
+#   (2) The full name of the person.
+#   (3) In brief, what they will be working on (a couple of sentences).
+#
+# Changes to email forwards can be made without doceng's approval.  Please
+# use "Approved by: doceng (implicit)" to that type of commits.
+#
+ale
+bcr
+bjk
+blackend
+bland
+brd
+brueffer
+chinsan
+danger
+delphij
+#des
+dougb
+gabor
+ganbold
+gavin
+gjb
+glewis
+hrs
+imp
+issyl0
+jhb
+jkois
+joel
+kensmith
+keramida
+kuriyama
+linimon
+loader
+manolis
+marck
+marcus
+maxim
+miwi
+obrien
+pav
+pluknet
+remko
+rene
+ru
+rwatson bb+lists.freebsd.cvs-committers@cyrus.watson.org
+ryusuke
+simon
+taras
+trhodes
+wblock
+wilko	freebsd-commits@freebie.xs4all.nl
+wosch

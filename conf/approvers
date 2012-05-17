@@ -1,0 +1,27 @@
+# Configuration file for checking approvals.
+#
+# If you want to commit to specific module/branch defined in this file,
+# you should get approval from appropriate party.
+#
+# This file is maintained by core@FreeBSD.org.
+#
+# Format is tab separated.
+# Use # as first character in a line for comment.
+#
+# You should satisfy all of lines which matching to paths
+# to commit.
+#
+# 1st column is regexp for path name.
+# 2nd column is regexp used with "Approved by:[\t ]*" line.
+#
+# $FreeBSD$
+#
+^head/				doceng
+^projects/			doceng
+^user/				doceng
+^translations/			doceng
+^release/			doceng
+^www/				doceng
+^svnadmin/			doceng
+^svnadmin/conf/approvers	doceng
+^svnadmin/conf/access		doceng

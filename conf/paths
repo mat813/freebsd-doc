@@ -1,0 +1,23 @@
+# $FreeBSD$
+# List of paths that can be committed to in this repository.
+# svnadmin/conf/approvers provides the limits as to who can commit.
+# Any commit that touches a path that does not match one of these lines will fail.
+
+# Mainline of the doc tree
+^head/
+
+# Mainline of the www tree (obsolete)
+^www/
+
+# Feature branches.  Not open until we're certain we're not reverting to cvs.
+^user/
+^projects/
+^translations/
+
+# Release engineering static snapshot tags.  Magic is required here.
+^release/
+
+# CVSROOT's new home
+^svnadmin/conf/
+^svnadmin/hooks/
+^svnadmin/tools/
