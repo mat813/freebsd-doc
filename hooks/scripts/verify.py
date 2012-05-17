@@ -186,7 +186,7 @@ class ChangeReceiver(delta.Editor):
 
     # POLICY: if a file is binary, then it must have mime application/* or image/*
     if binary:
-      if not mimetype.startswith('application/') and not mimetype.startswith('image/'):
+      if not mimetype.startswith('application/') and not mimetype.startswith('image/') and not mimetype.startswith('text/sgml') and not mimetype.startswith('text/html') and not mimetype.startswith('text/xml'):
 	self.do_fail('Path "%s" contains binary but has svn:mime-type "%s"\n' % (path, mimetype))
 	sys.stderr.write('Try application/* (application/octet-stream) or image/* instead.\n')
 
