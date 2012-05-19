@@ -243,7 +243,7 @@ class MailedOutput(OutputBase):
 #    hdrs = 'From: %s\n'    \
 #    hdrs = 'To: %s\n'      \
     hdrs = 'Subject: %s\n' \
-           'X-SVN-Group: %s\n' \
+           'X-SVN-Group: doc-%s\n' \
            'MIME-Version: 1.0\n' \
            'Content-Type: text/plain; charset=UTF-8\n' \
            'Content-Transfer-Encoding: 8bit\n' \
