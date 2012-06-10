@@ -6,9 +6,6 @@
 # Mainline of the doc tree
 ^head/
 
-# Mainline of the www tree (obsolete)
-^www/
-
 # Feature branches.  Not open until we're certain we're not reverting to cvs.
 ^user/
 ^projects/

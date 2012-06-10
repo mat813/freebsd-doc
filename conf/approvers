@@ -21,7 +21,6 @@
 ^user/				doceng
 ^translations/			doceng
 ^release/			doceng
-^www/				doceng
 ^svnadmin/			doceng
 ^svnadmin/conf/approvers	doceng
 ^svnadmin/conf/access		doceng
