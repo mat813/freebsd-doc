@@ -16,7 +16,7 @@
 #
 # $FreeBSD$
 #
-#^head/				doceng
+^head/				doceng
 ^projects/			doceng
 ^user/				doceng
 ^translations/			doceng
