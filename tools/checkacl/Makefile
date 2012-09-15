@@ -1,6 +1,7 @@
 # $FreeBSD$
 
 PROG=	checkacl-doc
+SRCS=	checkacl.c
 NO_MAN=	too bad
 NO_SHARED=yes
 DESTDIR=/usr/local/bin
