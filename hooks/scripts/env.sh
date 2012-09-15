@@ -5,5 +5,7 @@ export PATH
 cd /s/svn/doc
 umask 002
 if [ -x /usr/local/bin/checkacl-doc ]; then
-  eval `/usr/local/bin/checkacl-doc`
+  eval `/usr/local/bin/checkacl-doc doc`
+elif [ -x /usr/local/bin/checkacl ]; then
+  eval `/usr/local/bin/checkacl doc`
 fi
