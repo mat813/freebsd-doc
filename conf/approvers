@@ -17,9 +17,9 @@
 # $FreeBSD$
 #
 #^head/				doceng
-^projects/			doceng
-^user/				doceng
-^translations/			doceng
+#^projects/			doceng
+#^user/				doceng
+#^translations/			doceng
 ^release/			doceng
 ^svnadmin/			doceng
 ^svnadmin/conf/approvers	doceng
