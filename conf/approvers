@@ -3,7 +3,7 @@
 # If you want to commit to specific module/branch defined in this file,
 # you should get approval from appropriate party.
 #
-# This file is maintained by core@FreeBSD.org.
+# This file is maintained by doceng@FreeBSD.org.
 #
 # Format is tab separated.
 # Use # as first character in a line for comment.
