@@ -9,7 +9,7 @@ import re
 import os.path
 from svn import core, fs, delta, repos
 
-# POLICY: if cvs2svn:cvs-rev must not be set.
+# POLICY: cvs2svn:cvs-rev must not be set.
 # POLICY: mime-type must be unset, text/*, application/* or image/*
 # POLICY: if a file does has fbsd:nokeywords, then svn:keywords must not be set
 # POLICY: if a file has binary chars and no fbsd:notbinary, then pretend its not binary
@@ -149,7 +149,7 @@ class ChangeReceiver(delta.Editor):
     if not changed:
       return
 
-    # POLICY: if cvs2svn:cvs-rev must not be set. period.
+    # POLICY: cvs2svn:cvs-rev must not be set. period.
     cvsrev = fs.node_prop(self.txn_root, path, 'cvs2svn:cvs-rev')
     if cvsrev:
       self.do_fail('Path "%s" needs to have "cvs2svn:cvs-rev" removed with "svn propdel".\n' % path)
