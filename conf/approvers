@@ -21,7 +21,6 @@
 #^user/				doceng
 #^translations/			doceng
 ^projects/ISBN_1-57176-407-0/	doceng
-^projects/relnotes-glue/	(doceng|re)
 ^release/			doceng
 ^svnadmin/			doceng
 ^svnadmin/conf/approvers	doceng
