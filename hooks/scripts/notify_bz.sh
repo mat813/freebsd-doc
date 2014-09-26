@@ -32,7 +32,7 @@ for pr in $PRS; do
 		echo "Author: $WHO"
 		echo "Date: $(date)"
 		echo "New revision: $REV"
-		echo "URL: http://svnweb.freebsd.org/changeset/doc/$REV"
+		echo "URL: https://svnweb.freebsd.org/changeset/doc/$REV"
 		echo ""
 		echo "Log:"
 		svnlook log "$REPO" -r "$REV" | sed -e 's/^/  /'
