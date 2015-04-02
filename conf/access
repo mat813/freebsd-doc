@@ -1,7 +1,8 @@
 # $FreeBSD$
 #
-# Please try to keep the handbook (contrib/chapter.sgml authors.ent
-# staff/chapter.sgml) in in sync with this.
+# Please try to keep the handbook (share/xml/authors.ent
+# en_US.ISO8859-1/articles/contributors/contrib.committers.xml)
+# in in sync with this.
 #
 #       KEEP ALPHABETICALLY SORTED!!!
 #       KEEP ALPHABETICALLY SORTED!!!
