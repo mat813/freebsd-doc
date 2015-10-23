@@ -13,7 +13,8 @@ from svn import core, fs, delta, repos
 # POLICY: mime-type must be unset, text/*, application/* or image/*
 # POLICY: if a file does has fbsd:nokeywords, then svn:keywords must not be set
 # POLICY: if a file has binary chars and no fbsd:notbinary, then pretend its not binary
-# POLICY: if a file is binary, then it must have mime application/* or image/*
+# POLICY: if a file is binary, then it must have mime application/*, image/*,
+#         or text/{sgml,xml,troff}.
 # POLICY: if a file does not have fbsd:nokeywords, or is binary then svn:keywords must be set
 # POLICY: if svn:keywords is set, $ FreeBSD $ must be present and condensed.
 
@@ -186,7 +187,7 @@ class ChangeReceiver(delta.Editor):
 
     # POLICY: if a file is binary, then it must have mime application/* or image/*
     if binary:
-      if not mimetype.startswith('application/') and not mimetype.startswith('image/') and not mimetype.startswith('text/sgml') and not mimetype.startswith('text/html') and not mimetype.startswith('text/xml'):
+      if not mimetype.startswith('application/') and not mimetype.startswith('image/') and not mimetype.startswith('text/sgml') and not mimetype.startswith('text/html') and not mimetype.startswith('text/xml') and not mimetype.startswith('text/troff'):
 	self.do_fail('Path "%s" contains binary but has svn:mime-type "%s"\n' % (path, mimetype))
 	sys.stderr.write('Try application/* (application/octet-stream) or image/* instead.\n')
 
