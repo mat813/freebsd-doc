@@ -1,6 +1,6 @@
 # $FreeBSD$
 
-# A list of current mentee login names and their mentors.  This list is not 
+# A list of current mentee login names and their mentors.  This list is not
 # used for anything, but serves as a place to commit to in order to
 # "release" a mentee from mentorship since svn cannot do forced commits.
 
@@ -13,5 +13,4 @@
 anne		gjb
 ebrandi		gabor
 gnn		remko		co-mentor: gjb
-jgh		bcr		co-mentor: remko, wblock
 skreuzer	hrs
