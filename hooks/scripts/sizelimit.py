@@ -13,7 +13,8 @@ from svn import core, fs, repos
 # you were about to add a large transaction.
 
 # Check your 'svn status' output, think carefully and take extra care.  You may
-# temporarily add yourself here once you're in the 'careful' frame of mind. :)
+# temporarily add yourself to /conf/sizelimit.conf once you're in the 'careful'
+# frame of mind. :)
 
 # Be sure to remove yourself after you're finished, or you might find yourself
 # having to explain a large accident...
