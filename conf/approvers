@@ -22,6 +22,5 @@
 #^translations/			doceng
 ^projects/ISBN_1-57176-407-0/	doceng
 ^release/			doceng
-^svnadmin/			doceng
 ^svnadmin/conf/approvers	doceng
 ^svnadmin/conf/access		doceng
