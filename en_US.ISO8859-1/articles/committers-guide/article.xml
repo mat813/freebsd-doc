@@ -863,24 +863,49 @@ You need a Passphrase to protect your secret key.</screen>
       <sect3 xml:id="svn-daily-use-adding-and-removing">
 	<title>Adding and Removing Files</title>
 
+	<para>In the base and ports
+	  <application>Subversion</application> repositories,
+	  properties are set automatically when a file is added.
+	  This is achieved by using the
+	  <literal>svn:auto-props</literal> property.  No auto-props
+	  file needs to be used.  The base system
+	  <filename>auto-props.txt</filename> should not be used.
+	  The current list of automatic properties can be seen
+	  with:</para>
+
+	<screen>
+&prompt.user; <userinput>svn propget svn:auto-props https://svn.freebsd.org/ports</userinput>
+bsd.*.mk     = svn:keywords=FreeBSD=%H
+distinfo*    = fbsd:nokeywords=yes
+extrapatch-* = fbsd:nokeywords=yes
+extra-patch-*= fbsd:nokeywords=yes
+patch-*      = fbsd:nokeywords=yes
+pkg-*        = fbsd:nokeywords=yes
+Makefile*    = svn:keywords=FreeBSD=%H
+*            = svn:eol-style=native; svn:mime-type=text/plain
+
+&prompt.user; <userinput>svn propget svn:auto-props https://svn.freebsd.org/base</userinput>
+*.c     = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
+*.h     = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
+*.s     = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
+*.S     = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
+*.cc    = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
+[...]</screen>
+
 	<note>
-	  <para>Before adding files, get a copy of <link
-	      xlink:href="https://people.FreeBSD.org/~peter/auto-props.txt">auto-props.txt</link>
-	    (there is also a <link
-	      xlink:href="https://people.FreeBSD.org/~beat/cvs2svn/auto-props.txt">
-	      ports tree specific version</link>) and add it to
-	    <filename>~/.subversion/config</filename> according to the
-	    instructions in the file.  If you added something before
-	    reading this, use <command>svn rm --keep-local</command>
-	    for just added files, fix your config file and re-add them
-	    again.  The initial config file is created when you first
-	    run a svn command, even something as simple as
-	    <command>svn help</command>.</para>
+	  <para>Some subdirectories may have additional
+	    auto-properties, for example:</para>
+
+	  <screen>&prompt.user; <userinput>svn propget svn:auto-props https://svn.freebsd.org/ports/head/Mk/Scripts</userinput>
+*.sh = svn:keywords=FreeBSD=%H</screen>
 	</note>
 
-	<para>Files are added to a
-	  <acronym>SVN</acronym> repository with <command>svn
-	    add</command>.  To add a file named
+	<para>The Documentation repository does not use
+	  <literal>svn:auto-props</literal>, when adding files, it may
+	  be necessary to add properties manually.</para>
+
+	<para>Files are added to a <acronym>SVN</acronym> repository
+	  with <command>svn add</command>.  To add a file named
 	  <emphasis>foo</emphasis>, edit it, then:</para>
 
 	<screen>&prompt.user; <userinput>svn add <replaceable>foo</replaceable></userinput></screen>
@@ -896,30 +921,60 @@ You need a Passphrase to protect your secret key.</screen>
 	    <literal>&dollar;&os;&dollar;</literal> string.</para>
 	</note>
 
+	<para>If a file is missing a
+	  <application>Subversion</application> property, it can be
+	  easily added.  For example, if the file contains a
+	  <literal>&dollar;FreeBSD&dollar;</literal> keyword and the
+	  server complains about it:</para>
+
+	<screen>&prompt.user; <userinput>svn ci <replaceable>foo</replaceable></userinput>
+Adding         <replaceable>foo</replaceable>
+Transmitting file data .done
+Committing transaction...
+svn: E165001: Commit failed (details follow):
+svn: E165001: Commit blocked by pre-commit hook (exit code 1) with output:
+Path "head/<replaceable>foo</replaceable>" is missing the svn:keywords property (or an fbsd:nokeywords override)
+== Pre-commit problem count: 1
+
+svn: E165001: Your commit message was left in a temporary file:
+svn: E165001:    '/usr/ports/svn-commit.tmp'</screen>
+
+	<para>Then use <command>svn propset</command> to add the
+	  required property, and commit the file again:</para>
+
+	<screen>&prompt.user; <userinput>svn propset svn:keywords FreeBSD=%H <replaceable>foo</replaceable></userinput>
+&prompt.user; <userinput>svn ci <replaceable>foo</replaceable></userinput>
+Adding         <replaceable>foo</replaceable>
+Transmitting file data .done
+Committing transaction...
+Committed revision 85645.
+</screen>
+
 	<para>Files can be removed with <command>svn
 	    remove</command>:</para>
 
 	<screen>&prompt.user; <userinput>svn remove <replaceable>foo</replaceable></userinput></screen>
 
-	<para>Subversion does not require deleting the file before
-	  using <command>svn rm</command>, and indeed complains if
-	  that happens.</para>
+	<note>
+	  <para>Subversion does not require deleting the file before
+	    using <command>svn rm</command>, and indeed complains if
+	    that happens.</para>
+	</note>
 
-	<para>It is possible to add directories with
+	<para>Use <command>svn mkdir</command> to combine the creation
+	  of the directory and the adding of it:</para>
+
+	<screen>&prompt.user; <userinput>svn mkdir <replaceable>bar</replaceable></userinput></screen>
+
+	<para>It is also possible to add existing directories with
 	  <command>svn add</command>:</para>
 
 	<screen>&prompt.user; <userinput>mkdir <replaceable>bar</replaceable></userinput>
 &prompt.user; <userinput>svn add <replaceable>bar</replaceable></userinput></screen>
 
-	<para>Although <command>svn mkdir</command> makes this easier
-	  by combining the creation of the directory and the adding of
-	  it:</para>
-
-	<screen>&prompt.user; <userinput>svn mkdir <replaceable>bar</replaceable></userinput></screen>
-
-	<para>Like files, directories are removed with
-	  <command>svn rm</command>.  There is no separate command
-	  specifically for removing directories.</para>
+	<para>Like files, directories are removed with <command>svn
+	    rm</command>.  There is no separate command specifically
+	  for removing directories.</para>
 
 	<screen>&prompt.user; <userinput>svn rm <replaceable>bar</replaceable></userinput></screen>
       </sect3>
