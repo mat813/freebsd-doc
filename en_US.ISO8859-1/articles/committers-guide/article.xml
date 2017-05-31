@@ -863,47 +863,6 @@ You need a Passphrase to protect your secret key.</screen>
       <sect3 xml:id="svn-daily-use-adding-and-removing">
 	<title>Adding and Removing Files</title>
 
-	<para>In the base and ports
-	  <application>Subversion</application> repositories,
-	  properties are set automatically when a file is added.
-	  This is achieved by using the
-	  <literal>svn:auto-props</literal> property.  No auto-props
-	  file needs to be used.  The base system
-	  <filename>auto-props.txt</filename> should not be used.
-	  The current list of automatic properties can be seen
-	  with:</para>
-
-	<screen>
-&prompt.user; <userinput>svn propget svn:auto-props https://svn.freebsd.org/ports</userinput>
-bsd.*.mk     = svn:keywords=FreeBSD=%H
-distinfo*    = fbsd:nokeywords=yes
-extrapatch-* = fbsd:nokeywords=yes
-extra-patch-*= fbsd:nokeywords=yes
-patch-*      = fbsd:nokeywords=yes
-pkg-*        = fbsd:nokeywords=yes
-Makefile*    = svn:keywords=FreeBSD=%H
-*            = svn:eol-style=native; svn:mime-type=text/plain
-
-&prompt.user; <userinput>svn propget svn:auto-props https://svn.freebsd.org/base</userinput>
-*.c     = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
-*.h     = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
-*.s     = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
-*.S     = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
-*.cc    = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
-[...]</screen>
-
-	<note>
-	  <para>Some subdirectories may have additional
-	    auto-properties, for example:</para>
-
-	  <screen>&prompt.user; <userinput>svn propget svn:auto-props https://svn.freebsd.org/ports/head/Mk/Scripts</userinput>
-*.sh = svn:keywords=FreeBSD=%H</screen>
-	</note>
-
-	<para>The Documentation repository does not use
-	  <literal>svn:auto-props</literal>, when adding files, it may
-	  be necessary to add properties manually.</para>
-
 	<para>Files are added to a <acronym>SVN</acronym> repository
 	  with <command>svn add</command>.  To add a file named
 	  <emphasis>foo</emphasis>, edit it, then:</para>
@@ -923,32 +882,8 @@ Makefile*    = svn:keywords=FreeBSD=%H
 
 	<para>If a file is missing a
 	  <application>Subversion</application> property, it can be
-	  easily added.  For example, if the file contains a
-	  <literal>&dollar;FreeBSD&dollar;</literal> keyword and the
-	  server complains about it:</para>
-
-	<screen>&prompt.user; <userinput>svn ci <replaceable>foo</replaceable></userinput>
-Adding         <replaceable>foo</replaceable>
-Transmitting file data .done
-Committing transaction...
-svn: E165001: Commit failed (details follow):
-svn: E165001: Commit blocked by pre-commit hook (exit code 1) with output:
-Path "head/<replaceable>foo</replaceable>" is missing the svn:keywords property (or an fbsd:nokeywords override)
-== Pre-commit problem count: 1
-
-svn: E165001: Your commit message was left in a temporary file:
-svn: E165001:    '/usr/ports/svn-commit.tmp'</screen>
-
-	<para>Then use <command>svn propset</command> to add the
-	  required property, and commit the file again:</para>
-
-	<screen>&prompt.user; <userinput>svn propset svn:keywords FreeBSD=%H <replaceable>foo</replaceable></userinput>
-&prompt.user; <userinput>svn ci <replaceable>foo</replaceable></userinput>
-Adding         <replaceable>foo</replaceable>
-Transmitting file data .done
-Committing transaction...
-Committed revision 85645.
-</screen>
+	  easily added.  See <xref
+	    linkend="svn-daily-use-properties"/>.</para>
 
 	<para>Files can be removed with <command>svn
 	    remove</command>:</para>
@@ -977,6 +912,141 @@ Committed revision 85645.
 	  for removing directories.</para>
 
 	<screen>&prompt.user; <userinput>svn rm <replaceable>bar</replaceable></userinput></screen>
+      </sect3>
+
+      <sect3 xml:id="svn-daily-use-properties">
+	<title>Dealing with <application>Subversion</application>
+	  Properties</title>
+
+	<para>In the base and ports
+	  <application>Subversion</application> repositories,
+	  properties are set automatically when a file is added.  This
+	  is achieved by using the <literal>svn:auto-props</literal>
+	  property.  No auto-props file needs to be used.  The base
+	  system <filename>auto-props.txt</filename> should not be
+	  used.  The current list of automatic properties can be seen
+	  with:</para>
+
+	<screen>&prompt.user; <userinput>svn propget svn:auto-props https://svn.freebsd.org/ports</userinput>
+bsd.*.mk     = svn:keywords=FreeBSD=%H
+distinfo*    = fbsd:nokeywords=yes
+extrapatch-* = fbsd:nokeywords=yes
+extra-patch-*= fbsd:nokeywords=yes
+patch-*      = fbsd:nokeywords=yes
+pkg-*        = fbsd:nokeywords=yes
+Makefile*    = svn:keywords=FreeBSD=%H
+*            = svn:eol-style=native; svn:mime-type=text/plain
+
+&prompt.user; <userinput>svn propget svn:auto-props https://svn.freebsd.org/base</userinput>
+*.c     = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
+*.h     = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
+*.s     = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
+*.S     = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
+*.cc    = svn:eol-style=native; svn:keywords=FreeBSD=%H; svn:mime-type=text/plain
+[...]</screen>
+
+	<note>
+	  <para>Some subdirectories may have additional
+	    auto-properties, to find out which, the
+	    <option>-R</option> argument for <command>svn
+	      propget</command> can be used, for example:</para>
+
+	  <screen>&prompt.user; <userinput>svn propget -R svn:auto-props https://svn.freebsd.org/ports/head/</userinput>
+https://svn.freebsd.org/ports/head/Mk - *.mk = svn:keywords=FreeBSD=%H
+
+https://svn.freebsd.org/ports/head/Mk/Scripts - *.sh = svn:keywords=FreeBSD=%H
+
+https://svn.freebsd.org/ports/head/misc/freebsd-release-manifests/files/MANIFESTS - *=svn:eol-style=native; fbsd:nokeywords=on; svn:mime-type=text/plain</screen>
+	</note>
+
+	<para>The Documentation repository does not use
+	  <literal>svn:auto-props</literal>, when adding files, it may
+	  be necessary to add properties manually.</para>
+
+	<tip>
+	  <para>When adding a file, it is easy to see what properties
+	    have been automatically added to it using <command>svn
+	      proplist</command>.  For example, in the ports
+	    tree:</para>
+
+	  <screen>&prompt.user; <userinput>svn add Makefile pkg-plist</userinput>
+A         Makefile
+A         pkg-plist
+&prompt.user; <userinput>svn proplist Makefile pkg-plist</userinput>
+Properties on 'Makefile':
+  svn:eol-style
+  svn:keywords
+  svn:mime-type
+Properties on 'pkg-plist':
+  fbsd:nokeywords
+  svn:eol-style
+  svn:mime-type</screen>
+
+	  <para>It is also possible to get the value of all the
+	    properties of a file using <command>svn proplist
+	      -v</command>:</para>
+
+	  <screen>&prompt.user; <userinput>svn proplist -v Makefile pkg-plist</userinput>
+Properties on 'Makefile':
+  svn:eol-style
+    native
+  svn:keywords
+    FreeBSD=%H
+  svn:mime-type
+    text/plain
+Properties on 'pkg-plist':
+  fbsd:nokeywords
+    yes
+  svn:eol-style
+    native
+  svn:mime-type
+    text/plain</screen>
+	</tip>
+
+	<example xml:id="svn-daily-props-ex1">
+	  <title>Adding a Missing Subversion Property</title>
+
+	  <para>It may happen that some file does not have the correct
+	    properties and they need to be added or removed manually.
+	    For example, if the file contains a
+	    <literal>&dollar;FreeBSD&dollar;</literal> keyword and the
+	    server complains about it:</para>
+
+	  <screen>&prompt.user; <userinput>svn ci <replaceable>foo</replaceable></userinput>
+Adding         <replaceable>foo</replaceable>
+Transmitting file data .done
+Committing transaction...
+svn: E165001: Commit failed (details follow):
+svn: E165001: Commit blocked by pre-commit hook (exit code 1) with output:
+Path "head/<replaceable>foo</replaceable>" is missing the svn:keywords property (or an fbsd:nokeywords override)
+== Pre-commit problem count: 1
+
+svn: E165001: Your commit message was left in a temporary file:
+svn: E165001:    '/usr/ports/svn-commit.tmp'</screen>
+
+	  <para>If the file contains a
+	    <literal>&dollar;FreeBSD&dollar;</literal> keyword, then
+	    use <command>svn propset</command> to add the required
+	    property, and commit the file again:</para>
+
+	  <screen>&prompt.user; <userinput>svn propset svn:keywords FreeBSD=%H <replaceable>foo</replaceable></userinput></screen>
+
+	  <para>If the file does not contain the keyword, or it
+	    contains a keyword, but it should not be modified, for
+	    example, if the file is a patch.  The
+	    <literal>fbsd:nokeywords</literal> keyword need to be
+	    added:</para>
+
+	  <screen>&prompt.user; <userinput>svn propset fbsd:nokeywords yes <replaceable>foo</replaceable></userinput></screen>
+
+	  <para>The file can then be committed:</para>
+
+	  <screen>&prompt.user; <userinput>svn ci <replaceable>foo</replaceable></userinput>
+Adding         <replaceable>foo</replaceable>
+Transmitting file data .done
+Committing transaction...
+Committed revision 85645.</screen>
+	</example>
       </sect3>
 
       <sect3 xml:id="svn-daily-use-copying-and-moving">
