@@ -2209,6 +2209,12 @@ freebsd-mfc-after = 2 weeks</programlisting>
       steps must be done by a mentor for those who are not
       committers.</para>
 
+    <sect2 xml:id="conventions-setup">
+      <title>Getting Everything Ready for the First Commit</title>
+
+      <para>blah</para>
+    </sect2>
+
     <sect2 xml:id="conventions-committers">
       <title>For New Committers</title>
 
