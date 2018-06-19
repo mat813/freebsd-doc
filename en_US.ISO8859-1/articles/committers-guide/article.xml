@@ -864,8 +864,8 @@ You need a Passphrase to protect your secret key.</screen>
 	<title>Adding and Removing Files</title>
 
 	<para>Files are added to a <acronym>SVN</acronym> repository
-	  with <command>svn add</command>.  To add a file named
-	  <emphasis>foo</emphasis>, edit it, then:</para>
+	  with <command>svn add</command>.  To add an existing file
+	  named <emphasis>foo</emphasis>, run:</para>
 
 	<screen>&prompt.user; <userinput>svn add <replaceable>foo</replaceable></userinput></screen>
 
