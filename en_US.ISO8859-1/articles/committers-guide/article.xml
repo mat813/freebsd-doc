@@ -886,9 +886,9 @@ You need a Passphrase to protect your secret key.</screen>
 	    linkend="svn-daily-use-properties"/>.</para>
 
 	<para>Files can be removed with <command>svn
-	    remove</command>:</para>
+	    delete</command>:</para>
 
-	<screen>&prompt.user; <userinput>svn remove <replaceable>foo</replaceable></userinput></screen>
+	<screen>&prompt.user; <userinput>svn delete <replaceable>foo</replaceable></userinput></screen>
 
 	<note>
 	  <para>Subversion does not require deleting the file before
@@ -908,7 +908,7 @@ You need a Passphrase to protect your secret key.</screen>
 &prompt.user; <userinput>svn add <replaceable>bar</replaceable></userinput></screen>
 
 	<para>Like files, directories are removed with <command>svn
-	    rm</command>.  There is no separate command specifically
+	    delete</command>.  There is no separate command specifically
 	  for removing directories.</para>
 
 	<screen>&prompt.user; <userinput>svn delete <replaceable>bar</replaceable></userinput></screen>
@@ -1243,7 +1243,7 @@ Committed revision 85645.</screen>
 	  </listitem>
 
 	  <listitem>
-	    <para><literal>remove</literal>, <literal>copy</literal>,
+	    <para><literal>delete</literal>, <literal>copy</literal>,
 	      <literal>rename</literal></para>
 	  </listitem>
 
@@ -4171,7 +4171,7 @@ Relnotes:           yes</programlisting>
 		<procedure>
 		  <step>
 		    <para>Remove the port's files and directory with
-		      <command>svn remove</command>.</para>
+		      <command>svn delete</command>.</para>
 		  </step>
 
 		  <step>
@@ -4268,7 +4268,7 @@ Relnotes:           yes</programlisting>
 	      <step>
 		<para>If some files have been added, or were removed
 		  during the resurrection process, use <command>svn
-		    add</command> or <command>svn remove</command> to
+		    add</command> or <command>svn delete</command> to
 		  make sure all the files in the port will be
 		  committed.</para>
 	      </step>
