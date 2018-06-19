@@ -548,8 +548,10 @@ You need a Passphrase to protect your secret key.</screen>
 	  <filename><replaceable>/usr/src/</replaceable></filename>,
 	  which can be any target directory on the local filesystem.
 	  Omitting the final argument of that command causes the
-	  working copy, in this case, to be named <quote>head</quote>,
-	  but that can be renamed safely.</para>
+	  working copy, in this case <quote>head</quote>, to be
+	  checked out in a directory also named
+	  <filename>head</filename>, but that can be renamed
+	  safely.</para>
 
 	<para><literal>svn+ssh</literal> means the
 	  <acronym>SVN</acronym> protocol tunnelled over
@@ -581,8 +583,8 @@ You need a Passphrase to protect your secret key.</screen>
       </sect3>
 
       <sect3 xml:id="svn-getting-started-base-layout">
-	<title><literal>RELENG_*</literal> Branches and General
-	  Layout</title>
+	<title>&os; Base System, <literal>RELENG_*</literal> Branches
+	  and General Layout</title>
 
 	<para>In <literal>svn+ssh://repo.freebsd.org/base</literal>,
 	  <emphasis>base</emphasis> refers to the source tree.
@@ -1119,46 +1121,80 @@ Committed revision 85645.</screen>
 	<para>If an <command>svn update</command> resulted in a merge
 	  conflict, Subversion will remember which files have
 	  conflicts and refuse to commit any changes to those files
-	  until explicitly told that the conflicts have been resolved.
-	  The simple, not yet deprecated procedure is:</para>
+	  until explicitly told that the conflicts have been
+	  resolved.</para>
 
-	<screen>&prompt.user; <userinput>svn resolved <replaceable>foo</replaceable></userinput></screen>
-
-	<para>However, the preferred procedure is:</para>
+	<para>The preferred procedure to mark conflicts as resolved
+	  is:</para>
 
 	<screen>&prompt.user; <userinput>svn resolve --accept=working <replaceable>foo</replaceable></userinput></screen>
 
-	<para>The two examples are equivalent.  Possible values for
+	<para>Possible values for
 	  <literal>--accept</literal> are:</para>
 
-	<itemizedlist>
+	<variablelist>
+	  <varlistentry>
+	    <term><literal>working</literal></term>
+
 	  <listitem>
-	    <para><literal>working</literal>: use the version in your
+	    <para>Use the version in your
 	      working directory (which one presumes has been edited to
 	      resolve the conflicts).</para>
 	  </listitem>
+	  </varlistentry>
+
+	  <varlistentry>
+	    <term><literal>base</literal></term>
 
 	  <listitem>
-	    <para><literal>base</literal>: use a pristine copy of the
+	    <para>Use a pristine copy of the
 	      version you had before <command>svn update</command>,
 	      discarding your own changes, the conflicting changes,
 	      and possibly other intervening changes as well.</para>
 	  </listitem>
+	  </varlistentry>
+
+	  <varlistentry>
+	    <term><literal>mine-conflict</literal></term>
+
+	    <listitem>
+	      <para>Accept my version for all conflicts.  Keep non
+		conflicting changes from both sides.</para>
+	    </listitem>
+	  </varlistentry>
+
+	  <varlistentry>
+	    <term><literal>theirs-conflict</literal></term>
+
+	    <listitem>
+	      <para>Accept the version that was retrieved when you did
+		<command>svn update</command> for all conflicts.  Keep
+		non conflicting changes from both sides.</para>
+	    </listitem>
+	  </varlistentry>
+
+	  <varlistentry>
+	    <term><literal>mine-full</literal></term>
 
 	  <listitem>
-	    <para><literal>mine-full</literal>: use what you had
+	    <para>Use what you had
 	      before <command>svn update</command>, including your own
 	      changes, but discarding the conflicting changes, and
 	      possibly other intervening changes as well.</para>
 	  </listitem>
+	  </varlistentry>
+
+	  <varlistentry>
+	    <term><literal>theirs-full</literal></term>
 
 	  <listitem>
-	    <para><literal>theirs-full</literal>: use the version that
+	    <para>Use the version that
 	      was retrieved when you did
 	      <command>svn update</command>, discarding your own
 	      changes.</para>
 	  </listitem>
-	</itemizedlist>
+	  </varlistentry>
+	</variablelist>
       </sect3>
     </sect2>
 
@@ -1265,7 +1301,8 @@ Committed revision 85645.</screen>
 
 	<para>This is equivalent to these commands
 	  which take minutes and hours as opposed to seconds,
-	  depending on your network connection:</para>
+	  depending on your network connection and local hard drive
+	  speed:</para>
 
 	<screen>&prompt.user; <userinput>svn checkout --depth=immediates svn+ssh://repo.freebsd.org/base</userinput>
 &prompt.user; <userinput>cd base</userinput>
@@ -1404,8 +1441,10 @@ Committed revision 85645.</screen>
 	  <screen>&prompt.user; <userinput>cd stable/7</userinput>
 &prompt.user; <userinput>svn update --set-depth=infinity</userinput></screen>
 
+	  <important>
 	  <para>The target directory must also be up-to-date and must
 	    not contain any uncommitted changes or stray files.</para>
+	  </important>
 	</sect4>
 
 	<sect4>
