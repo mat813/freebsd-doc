@@ -765,8 +765,8 @@ You need a Passphrase to protect your secret key.</screen>
 	<para>Expanding the working copy is possible.  Just change the
 	  depth of the various subdirectories:</para>
 
-	<screen>&prompt.user; <userinput>svn up --set-depth=infinity base/head</userinput>
-&prompt.user; <userinput>svn up --set-depth=immediates base/release base/releng base/stable</userinput></screen>
+	<screen>&prompt.user; <userinput>svn update --set-depth=infinity base/head</userinput>
+&prompt.user; <userinput>svn update --set-depth=immediates base/release base/releng base/stable</userinput></screen>
 
 	<para>The above command will pull down a full copy of
 	  <literal>head</literal>, plus empty copies of every
@@ -778,15 +778,15 @@ You need a Passphrase to protect your secret key.</screen>
 	  <literal>7-STABLE</literal> is required, expand the working
 	  copy:</para>
 
-	<screen>&prompt.user; <userinput>svn up --set-depth=infinity base/stable/7</userinput></screen>
+	<screen>&prompt.user; <userinput>svn update --set-depth=infinity base/stable/7</userinput></screen>
 
 	<para>Subtrees do not have to be expanded completely.  For
 	  instance, expanding only <literal>stable/7/sys</literal> and
 	  then later expand the rest of
 	  <literal>stable/7</literal>:</para>
 
-	<screen>&prompt.user; <userinput>svn up --set-depth=infinity base/stable/7/sys</userinput>
-&prompt.user; <userinput>svn up --set-depth=infinity base/stable/7</userinput></screen>
+	<screen>&prompt.user; <userinput>svn update --set-depth=infinity base/stable/7/sys</userinput>
+&prompt.user; <userinput>svn update --set-depth=infinity base/stable/7</userinput></screen>
 
 	<para>Updating the tree with <command>svn update</command>
 	  will only update what was previously asked for (in this
@@ -803,7 +803,7 @@ You need a Passphrase to protect your secret key.</screen>
 	  read-only tree that can be updated, but not committed back
 	  to the main repository.  To do this, use:</para>
 
-	<screen>&prompt.user; <userinput>svn co https://svn.FreeBSD.org/base/head /usr/src</userinput></screen>
+	<screen>&prompt.user; <userinput>svn checkout https://svn.FreeBSD.org/base/head /usr/src</userinput></screen>
 
 	<para>More details on using Subversion this way can be found
 	  in <link xlink:href="&url.books.handbook;/svn.html">Using
@@ -892,7 +892,7 @@ You need a Passphrase to protect your secret key.</screen>
 
 	<note>
 	  <para>Subversion does not require deleting the file before
-	    using <command>svn rm</command>, and indeed complains if
+	    using <command>svn delete</command>, and indeed complains if
 	    that happens.</para>
 	</note>
 
@@ -911,7 +911,7 @@ You need a Passphrase to protect your secret key.</screen>
 	    rm</command>.  There is no separate command specifically
 	  for removing directories.</para>
 
-	<screen>&prompt.user; <userinput>svn rm <replaceable>bar</replaceable></userinput></screen>
+	<screen>&prompt.user; <userinput>svn delete <replaceable>bar</replaceable></userinput></screen>
       </sect3>
 
       <sect3 xml:id="svn-daily-use-properties">
@@ -1012,7 +1012,7 @@ Properties on 'pkg-plist':
 	    <literal>&dollar;FreeBSD&dollar;</literal> keyword and the
 	    server complains about it:</para>
 
-	  <screen>&prompt.user; <userinput>svn ci <replaceable>foo</replaceable></userinput>
+	  <screen>&prompt.user; <userinput>svn commit <replaceable>foo</replaceable></userinput>
 Adding         <replaceable>foo</replaceable>
 Transmitting file data .done
 Committing transaction...
@@ -1041,7 +1041,7 @@ svn: E165001:    '/usr/ports/svn-commit.tmp'</screen>
 
 	  <para>The file can then be committed:</para>
 
-	  <screen>&prompt.user; <userinput>svn ci <replaceable>foo</replaceable></userinput>
+	  <screen>&prompt.user; <userinput>svn commit <replaceable>foo</replaceable></userinput>
 Adding         <replaceable>foo</replaceable>
 Transmitting file data .done
 Committing transaction...
@@ -1402,7 +1402,7 @@ Committed revision 85645.</screen>
 	    of stable/7:</para>
 
 	  <screen>&prompt.user; <userinput>cd stable/7</userinput>
-&prompt.user; <userinput>svn up --set-depth=infinity</userinput></screen>
+&prompt.user; <userinput>svn update --set-depth=infinity</userinput></screen>
 
 	  <para>The target directory must also be up-to-date and must
 	    not contain any uncommitted changes or stray files.</para>
@@ -1618,9 +1618,9 @@ U    stable/9/share/man/man4/netmap.4
 	    <para>To flatten the <literal>pf</literal> tree:</para>
 
 	    <screen>&prompt.user; <userinput>cd <replaceable>vendor/pf/dist/contrib/pf</replaceable></userinput>
-&prompt.user; <userinput>svn mv $(svn list) ../..</userinput>
+&prompt.user; <userinput>svn move $(svn list) ../..</userinput>
 &prompt.user; <userinput>cd ../..</userinput>
-&prompt.user; <userinput>svn rm contrib</userinput>
+&prompt.user; <userinput>svn delete contrib</userinput>
 &prompt.user; <userinput>svn propdel -R svn:mergeinfo .</userinput>
 &prompt.user; <userinput>svn commit</userinput></screen>
 
@@ -1687,7 +1687,7 @@ U    stable/9/share/man/man4/netmap.4
 
 	    <para>A <command>svn add</command> is required to add any
 	      files that were added since the last vendor import, and
-	      <command>svn rm</command> is required to remove any that
+	      <command>svn delete</command> is required to remove any that
 	      were removed since.  Preparing sorted lists of the
 	      contents of the vendor tree and of the sources that are
 	      about to be imported is recommended, to facilitate the
@@ -1712,17 +1712,17 @@ U    stable/9/share/man/man4/netmap.4
 	    <para>Now, the sources must be copied into
 	      <filename><replaceable>dist</replaceable></filename> and
 	      the <command>svn add</command> and
-	      <command>svn rm</command> commands are used as
+	      <command>svn delete</command> commands are used as
 	      needed:</para>
 
 	    <screen>&prompt.user; <userinput>cd <replaceable>vendor/pf/pf-4.3</replaceable></userinput>
 &prompt.user; <userinput>tar cf - . | tar xf - -C ../dist</userinput>
 &prompt.user; <userinput>cd <replaceable>../dist</replaceable></userinput>
-&prompt.user; <userinput>comm -23 ../old ../new | xargs svn rm</userinput>
+&prompt.user; <userinput>comm -23 ../old ../new | xargs svn delete</userinput>
 &prompt.user; <userinput>comm -13 ../old ../new | xargs svn --parents add</userinput></screen>
 
 	    <para>If any directories were removed, they will have to
-	      be <command>svn rm</command>ed manually.  Nothing will
+	      be <command>svn delete</command>d manually.  Nothing will
 	      break if they are not, but they will remain in the
 	      tree.</para>
 
@@ -1749,9 +1749,9 @@ U    stable/9/share/man/man4/netmap.4
 	      future reference.  The best and quickest way to do this
 	      is directly in the repository:</para>
 
-	    <screen>&prompt.user; <userinput>svn cp svn+ssh://repo.freebsd.org/base/<replaceable>vendor/pf/dist</replaceable> svn+ssh://repo.freebsd.org/base/<replaceable>vendor/pf/4.3</replaceable></userinput></screen>
+	    <screen>&prompt.user; <userinput>svn copy svn+ssh://repo.freebsd.org/base/<replaceable>vendor/pf/dist</replaceable> svn+ssh://repo.freebsd.org/base/<replaceable>vendor/pf/4.3</replaceable></userinput></screen>
 
-	    <para>Once that is complete, <command>svn up</command> the
+	    <para>Once that is complete, <command>svn update</command> the
 	      working copy of
 	      <filename><replaceable>vendor/pf</replaceable></filename>
 	      to get the new tag, although this is rarely
@@ -1762,7 +1762,7 @@ U    stable/9/share/man/man4/netmap.4
 	      removed:</para>
 
 	    <screen>&prompt.user; <userinput>cd	<replaceable>vendor/pf</replaceable></userinput>
-&prompt.user; <userinput>svn cp dist 4.3</userinput>
+&prompt.user; <userinput>svn copy dist 4.3</userinput>
 &prompt.user; <userinput>svn propdel svn:mergeinfo -R 4.3</userinput></screen>
 	  </sect5>
 	</sect4>
@@ -1771,7 +1771,7 @@ U    stable/9/share/man/man4/netmap.4
 	  <title>Merging to Head</title>
 
 	  <screen>&prompt.user; <userinput>cd <replaceable>head/contrib/pf</replaceable></userinput>
-&prompt.user; <userinput>svn up</userinput>
+&prompt.user; <userinput>svn update</userinput>
 &prompt.user; <userinput>svn merge --accept=postpone svn+ssh://repo.freebsd.org/base/<replaceable>vendor/pf/dist</replaceable> .</userinput></screen>
 
 	  <para>The <literal>--accept=postpone</literal> tells
@@ -1861,7 +1861,7 @@ U    stable/9/share/man/man4/netmap.4
 	    <para>First, prepare the directory in
 	      <filename>vendor</filename>:</para>
 
-	    <screen>&prompt.user; <userinput>svn co --depth immediates <replaceable>$FSVN/vendor</replaceable></userinput>
+	    <screen>&prompt.user; <userinput>svn checkout --depth immediates <replaceable>$FSVN/vendor</replaceable></userinput>
 &prompt.user; <userinput>cd <replaceable>vendor</replaceable></userinput>
 &prompt.user; <userinput>svn mkdir <replaceable>byacc</replaceable></userinput>
 &prompt.user; <userinput>svn mkdir <replaceable>byacc/dist</replaceable></userinput></screen>
@@ -1873,7 +1873,7 @@ U    stable/9/share/man/man4/netmap.4
 	      the imported version.  To save time and bandwidth,
 	      direct remote committing and tagging is possible:</para>
 
-	    <screen>&prompt.user; <userinput>svn cp -m <replaceable>"Tag byacc 20120115"</replaceable> <replaceable>$FSVN/vendor/byacc/dist</replaceable> <replaceable>$FSVN/vendor/byacc/20120115</replaceable></userinput></screen>
+	    <screen>&prompt.user; <userinput>svn copy -m <replaceable>"Tag byacc 20120115"</replaceable> <replaceable>$FSVN/vendor/byacc/dist</replaceable> <replaceable>$FSVN/vendor/byacc/20120115</replaceable></userinput></screen>
 	  </sect5>
 
 	  <sect5>
@@ -1882,7 +1882,7 @@ U    stable/9/share/man/man4/netmap.4
 	    <para>Due to this being a new file, copy it for the
 	      merge:</para>
 
-	    <screen>&prompt.user; <userinput>svn cp -m <replaceable>"Import byacc to contrib"</replaceable> <replaceable>$FSVN/vendor/byacc/dist</replaceable> <replaceable>$FSVN/head/contrib/byacc</replaceable></userinput></screen>
+	    <screen>&prompt.user; <userinput>svn copy -m <replaceable>"Import byacc to contrib"</replaceable> <replaceable>$FSVN/vendor/byacc/dist</replaceable> <replaceable>$FSVN/head/contrib/byacc</replaceable></userinput></screen>
 
 	    <para>Working normally on newly imported sources is still
 	      possible.</para>
@@ -4242,7 +4242,7 @@ Relnotes:           yes</programlisting>
 		  port:</para>
 
 		<screen>&prompt.user; <userinput>cd /usr/ports/<replaceable>category</replaceable></userinput>
-&prompt.user; <userinput>svn cp 'svn+ssh://repo.freebsd.org/ports/head/<replaceable>category</replaceable>/<replaceable>portname</replaceable>/@<replaceable>XXXXXX</replaceable>' <replaceable>portname</replaceable></userinput></screen>
+&prompt.user; <userinput>svn copy 'svn+ssh://repo.freebsd.org/ports/head/<replaceable>category</replaceable>/<replaceable>portname</replaceable>/@<replaceable>XXXXXX</replaceable>' <replaceable>portname</replaceable></userinput></screen>
 
 		<para>Pick the revision that is just before the
 		  removal.  For example, if the revision where it was
@@ -4254,7 +4254,7 @@ Relnotes:           yes</programlisting>
 		  after the last commit to the port.</para>
 
 		<screen>&prompt.user; <userinput>cd /usr/ports/<replaceable>category</replaceable></userinput>
-&prompt.user; <userinput>svn cp 'svn+ssh://repo.freebsd.org/ports/head/<replaceable>category</replaceable>/<replaceable>portname</replaceable>/@{<replaceable>YYYY-MM-DD</replaceable>}' <replaceable>portname</replaceable></userinput></screen>
+&prompt.user; <userinput>svn copy 'svn+ssh://repo.freebsd.org/ports/head/<replaceable>category</replaceable>/<replaceable>portname</replaceable>/@{<replaceable>YYYY-MM-DD</replaceable>}' <replaceable>portname</replaceable></userinput></screen>
 	      </step>
 
 	      <step>
@@ -4353,7 +4353,7 @@ Relnotes:           yes</programlisting>
 		  </step>
 
 		  <step>
-		    <para>Use <command>svn up</command> to make
+		    <para>Use <command>svn update</command> to make
 		      certain the original files, directories, and
 		      checkout information is current.</para>
 		  </step>
