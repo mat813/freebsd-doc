@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!--
+     The FreeBSD Documentation Project
+
+     $FreeBSD$
+
+-->
+
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink=
+  "http://www.w3.org/1999/xlink" version="5.0" xml:id="subpackages">
+
+  <title>Sub-packages</title>
+
+  <sect1 xml:id="subpackages-intro">
+    <title>An Introduction to Subpackages</title>
+
+    <para>Subpackages are a way to have the single build of a port
+      generate more than one package.</para>
+
+  </sect1>
+</chapter>

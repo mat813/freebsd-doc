@@ -69,6 +69,7 @@
   &chap.makefiles;
   &chap.special;
   &chap.flavors;
+  &chap.subpackages;
   &chap.plist;
   &chap.pkg-files;
   &chap.testing;
