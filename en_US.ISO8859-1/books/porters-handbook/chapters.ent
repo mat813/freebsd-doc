@@ -15,6 +15,7 @@
 <!ENTITY chap.quick-porting	SYSTEM "quick-porting/chapter.xml">
 <!ENTITY chap.slow-porting	SYSTEM "slow-porting/chapter.xml">
 <!ENTITY chap.makefiles		SYSTEM "makefiles/chapter.xml">
+<!ENTITY chap.options		SYSTEM "options/chapter.xml">
 <!ENTITY chap.special		SYSTEM "special/chapter.xml">
 <!ENTITY chap.flavors		SYSTEM "flavors/chapter.xml">
 <!ENTITY chap.plist		SYSTEM "plist/chapter.xml">

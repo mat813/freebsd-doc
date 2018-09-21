@@ -67,6 +67,7 @@
   &chap.quick-porting;
   &chap.slow-porting;
   &chap.makefiles;
+  &chap.options;
   &chap.special;
   &chap.flavors;
   &chap.plist;
