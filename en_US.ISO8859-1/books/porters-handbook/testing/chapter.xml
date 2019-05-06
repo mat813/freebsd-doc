@@ -38,7 +38,7 @@
       <filename>bsd.port.mk</filename> for the meaning of the string
       produced.</para>
 
-    <para>Also note that running a recent version of
+    <para>Also, note that running a recent version of
       <command>portlint</command> (as specified in the next section)
       will cause <command>make describe</command> to be run
       automatically.</para>
@@ -98,7 +98,7 @@
       installed system mounted somewhere other than
       <filename>/</filename>.  A port will actually install into
       <filename>DESTDIR/PREFIX</filename>, and register with the
-      package database in <filename>DESTDIR/var/db/pkg</filename>.  As
+      package database in <filename>DESTDIR/var/db/pkg</filename>.
       <varname>DESTDIR</varname> is handled automatically by the ports
       infrastructure with &man.chroot.8;.  There is no need for
       modifications or any extra care to write
@@ -287,7 +287,7 @@
 	version because it is what is used in production, and has all
 	the new features that will make sure everything is exactly
 	right.  A contributor will not necessarily need those as the
-	most important fixes are backported to released version.  The
+	most important fixes are backported to the released version.  The
 	main reason for the use of the development version to build
 	the official package is because it is faster, in a way that
 	will shorten a full build from 18 hours to 17 hours when using
@@ -383,7 +383,7 @@ SVN_HOST=svn.FreeBSD.org</programlisting>
 	    <para>The <acronym>FTP</acronym>/<acronym>HTTP</acronym>
 	      server to use when the jails are installed from &os;
 	      releases and updated with &man.freebsd-update.8;.
-	      Choose a server location which is close, for example if
+	      Choose a server location which is close, for example, if
 	      the machine is located in Australia, use
 	      <literal>ftp.au.freebsd.org</literal>.</para>
 	  </listitem>
@@ -419,7 +419,7 @@ SVN_HOST=svn.FreeBSD.org</programlisting>
 
       <screen>&prompt.root; <userinput>poudriere jail -c -j 111Ramd64 -v 11.1-RELEASE -a amd64</userinput></screen>
 
-      <para>Fetch a <literal>11.1-RELEASE</literal> for
+      <para>Fetch an <literal>11.1-RELEASE</literal> for
 	<literal>amd64</literal> from the <acronym>FTP</acronym>
 	server given by <varname>FREEBSD_HOST</varname> in
 	<filename>poudriere.conf</filename>, create the zfs file
@@ -464,12 +464,12 @@ SVN_HOST=svn.FreeBSD.org</programlisting>
 	    <screen>&prompt.root; <userinput>poudriere jail -c -j 12amd64 -v head -a amd64 -m svn+https</userinput></screen>
 
 	  <para>In order to run a <literal>12.0-CURRENT</literal>
-	    <application>Poudriere</application> jail you must be
+	    <application>Poudriere</application> jail, you must be
 	    running <literal>12.0-CURRENT</literal>.  In general, newer
 	    kernels can build and run older jails.  For instance, a
-	    <literal>12.0-CURRENT</literal> kernel can build and run a
+	    <literal>12.0-CURRENT</literal> kernel can build and run an
 	    <literal>11.1-STABLE</literal>
-	    <application>Poudriere</application> jails if the
+	    <application>Poudriere</application> jail if the
 	    <literal>COMPAT_FREEBSD11</literal> kernel option was
 	    compiled in (on by default in
 	    <literal>12.0-CURRENT</literal>
@@ -539,7 +539,7 @@ JAILNAME             VERSION              ARCH    METHOD
       <para>This command creates
 	<literal>tank/poudriere/ports/default</literal>, mount it on
 	<filename>/poudriere/ports/default</filename>, and populate it
-	using &man.portsnap.8;.  Afterward it is included in the list
+	using &man.portsnap.8;.  Afterward, it is included in the list
 	of known ports trees:</para>
 
       <screen>&prompt.root; <userinput>poudriere ports -l</userinput>
@@ -721,7 +721,7 @@ development  -        /work/ports</screen>
 	format
 	<literal><replaceable>category</replaceable>/<replaceable>portname</replaceable></literal>
 	will use the specified options, all dependencies will use the
-	default options.  Testing dependent ports with non-default
+	default options.  Testing the dependent ports with non-default
 	options can be accomplished using sets, see <xref
 	  linkend="testing-poudriere-sets"/>.</para>
 
@@ -750,7 +750,7 @@ development  -        /work/ports</screen>
 	<filename>/var/db/ports</filename> in its configuration
 	directory.  This directory is then &man.nullfs.5;-mounted into the
 	jails where the ports and their dependencies are built.
-	Usually a suitable starting point can be obtained by
+	Usually, a suitable starting point can be obtained by
 	recursively copying the existing <varname>PORT_DBDIR</varname>
 	to
 	<filename>/usr/local/etc/poudriere.d/<replaceable>jailname</replaceable>-<replaceable>portname</replaceable>-<replaceable>setname</replaceable>-options</filename>.
@@ -815,7 +815,7 @@ development  -        /work/ports</screen>
 
       <note>
 	<para><application>Poudriere</application> is very flexible in
-	  the option configuration.  They can be set for particular
+	  the options configuration.  They can be set for particular
 	  jails, ports trees, and for multiple ports by one command.
 	  Refer to &man.poudriere.8; for details.</para>
       </note>
@@ -872,11 +872,11 @@ development  -        /work/ports</screen>
       <para>Unlike with sets, all of the found files will be appended,
 	<emphasis>in that order</emphasis>, into one
 	<filename>make.conf</filename> inside the build jails.  It is
-	hence possible to have general make variables, intended to
+	hence possible to have global make variables, intended to
 	affect all builds in
 	<filename>/usr/local/etc/poudriere.d/make.conf</filename>.
 	Special variables, intended to affect only certain jails or
-	sets can be set in specialised <filename>make.conf</filename>
+	sets can be set in specialized <filename>make.conf</filename>
 	files, such as
 	<filename>/usr/local/etc/poudriere.d/111Ramd64-development-devset-make.conf</filename>.</para>
 
@@ -884,7 +884,7 @@ development  -        /work/ports</screen>
 	<title>Using <filename>make.conf</filename> to Change Default
 	  <application>Perl</application></title>
 
-	<para>To build a set with a non default
+	<para>To build a set with a non-default
 	  <application>Perl</application> version, for example,
 	  <literal>5.20</literal>, using a set named
 	  <literal>perl5-20</literal>, create a

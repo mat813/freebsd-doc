@@ -1058,7 +1058,7 @@ PORTEPOCH=	1</programlisting>
 
 	    <row>
 	      <entry><filename>cad</filename></entry>
-	      <entry>Computer aided design tools.</entry>
+	      <entry>Computer-aided design tools.</entry>
 	      <entry/>
 	    </row>
 
@@ -1121,7 +1121,7 @@ PORTEPOCH=	1</programlisting>
 	      <entry>General editors.</entry>
 	      <entry>Specialized editors go in the section for those
 		tools.  For example, a mathematical-formula editor
-		will go in <filename>math</filename>, and have
+		will go in <filename>math</filename> and have
 		<filename>editors</filename> as a second
 		category.</entry>
 	    </row>
@@ -1489,7 +1489,7 @@ PORTEPOCH=	1</programlisting>
 	      <entry><filename>science</filename></entry>
 	      <entry>Scientific ports that do not fit into other
 		categories such as <filename>astro</filename>,
-		<filename>biology</filename> and
+		<filename>biology</filename>, and
 		<filename>math</filename>.</entry>
 	      <entry/>
 	    </row>
@@ -1666,7 +1666,7 @@ PORTEPOCH=	1</programlisting>
 	</listitem>
 
 	<listitem>
-	  <para>Language specific categories always come first.  For
+	  <para>Language-specific categories always come first.  For
 	    example, if the port installs Japanese X11 fonts, then
 	    the <varname>CATEGORIES</varname> line would read
 	    <filename>japanese x11-fonts</filename>.</para>
@@ -1744,7 +1744,7 @@ PORTEPOCH=	1</programlisting>
 	not have a corresponding subdirectory in the ports tree&mdash;
 	or <emphasis>physical</emphasis> categories&mdash;those that
 	do.  This section discusses the issues involved in creating a
-	new physical category.  Read it thouroughly before proposing a
+	new physical category.  Read it thoroughly before proposing a
 	new one.</para>
 
       <para>Our existing practice has been to avoid creating a new
@@ -1835,7 +1835,7 @@ PORTEPOCH=	1</programlisting>
       </procedure>
 
       <para>Proposing a new virtual category is similar to the
-	above but much less involved, since no ports will actually
+	above but much less involved since no ports will actually
 	have to move.  In this case, the only patches to include in
 	the PR would be those to add the new category to
 	<varname>CATEGORIES</varname> of the affected ports.</para>
@@ -1845,7 +1845,7 @@ PORTEPOCH=	1</programlisting>
       <title>Proposing Reorganizing All the Categories</title>
 
       <para>Occasionally someone proposes reorganizing the
-	categories with either a 2-level structure, or some other kind
+	categories with either a 2-level structure or some other kind
 	of keyword structure.  To date, nothing has come of any of
 	these proposals because, while they are very easy to make, the
 	effort involved to retrofit the entire existing ports
@@ -1905,7 +1905,7 @@ PORTEPOCH=	1</programlisting>
 	<varname>DISTVERSION</varname> as the variable name.  Set
 	<varname>PORTVERSION</varname> to the computed version based
 	on the variable you
-	created, and set <varname>DISTNAME</varname>
+	created and set <varname>DISTNAME</varname>
 	accordingly.</para>
 
       <para>If the upstream version scheme cannot easily be coerced
@@ -1921,11 +1921,11 @@ PORTEPOCH=	1</programlisting>
 	<para><application>BIND9</application> uses a version scheme
 	  that is not compatible with the ports versions (it has
 	  <literal>-</literal> in its versions) and cannot be derived
-	  using <varname>DISTVERSION</varname> because after the 9.9.9
+	  using <varname>DISTVERSION</varname>, because after the 9.9.9
 	  release, it will release a <quote>patchlevels</quote> in the
 	  form of <literal>9.9.9-P1</literal>.  DISTVERSION would
 	  translate that into <literal>9.9.9.p1</literal>, which, in
-	  the ports versioning scheme means 9.9.9 pre-release 1, which
+	  the ports versioning scheme, means 9.9.9 pre-release 1, which
 	  is before 9.9.9 and not after.  So
 	  <varname>PORTVERSION</varname> is manually derived from an
 	  <varname>ISCVERSION</varname> variable to output
@@ -2469,7 +2469,7 @@ MASTER_SITE_SUBDIR=	stardict/WyabdcRealPeopleTTS/${PORTVERSION}</programlisting>
 
 	<para>While trying to make a port for version
 	  <literal>1.2.7</literal> of <application>pkg</application>
-	  from the &os; user on github, at <link
+	  from the &os; user on GitHub, at <link
 	    xlink:href="https://github.com/freebsd/pkg"/>, The
 	  <filename>Makefile</filename> would end up looking like
 	  this (slightly stripped for the example):</para>
@@ -2492,7 +2492,7 @@ GH_ACCOUNT=	freebsd</programlisting>
 
 	<para>While trying to make a port for the bleeding edge
 	  version of <application>pkg</application> from the &os;
-	  user on github, at <link
+	  user on GitHub, at <link
 	    xlink:href="https://github.com/freebsd/pkg"/>, the
 	  <filename>Makefile</filename> ends up looking like
 	  this (slightly stripped for the example):</para>
@@ -2668,7 +2668,7 @@ v0.7.3-0-gc66c71d</screen>
 	  <varname>GH_ACCOUNT</varname>,
 	  <varname>GH_PROJECT</varname>, and
 	  <varname>GH_TAGNAME</varname>.  Each different value is
-	  assigned a group.  The main value can either have no group,
+	  assigned to a group.  The main value can either have no group,
 	  or the <literal>:DEFAULT</literal> group.  A value can be
 	  omitted if it is the same as the default as listed in
 	  <xref
@@ -2745,7 +2745,7 @@ GH_SUBDIR=	ext/icons:icons
 CONFIGURE_ARGS=	--with-contrib=${WRKSRC_contrib}</programlisting>
 
 	  <para>This will fetch three distribution files from
-	    github.  The default one comes from
+	    GitHub.  The default one comes from
 	    <filename>foo/foo</filename> and is version
 	    <literal>1.0.2</literal>.  The second one, with the
 	    <literal>icons</literal> group, comes from
@@ -2827,7 +2827,7 @@ CONFIGURE_ARGS=	--with-contrib=${WRKSRC_contrib}</programlisting>
 	    It has a <link
 	      xlink:href="https://github.com/moneymanagerex/moneymanagerex/blob/master/.gitmodules"><filename>.gitmodules</filename></link>
 	    file at the root.  This file describes all the submodules
-	    used in this repository, and lists additional repositories
+	    used in this repository and lists additional repositories
 	    needed.  This file will tell what additional repositories
 	    are needed:</para>
 
@@ -2984,7 +2984,7 @@ GH_TUPLE=	utelle:wxsqlite3:v3.4.0:wxsqlite3/lib/wxsqlite3 \
                 <replaceable>site</replaceable><literal>:</literal><replaceable>account</replaceable><literal>:</literal><replaceable>project</replaceable><literal>:</literal><replaceable>commit</replaceable><literal>:</literal><replaceable>group</replaceable><literal>/</literal><replaceable>subdir</replaceable>.
                 The <replaceable>site</replaceable><literal>:</literal> and
                 <literal>/</literal><replaceable>subdir</replaceable>
-                part is optional. It is helpful when there are more
+                parts are optional. It is helpful when there are more
                 than one <application>GitLab</application> project from
                 which to fetch.</entry>
             </row>
@@ -3020,9 +3020,9 @@ GL_COMMIT=	e90302e342bfd27bc8c9132ab9d0ea3d8723fd03</programlisting>
         <title>More Complete Use of
           <varname>USE_GITLAB</varname></title>
 
-        <para>A more complete use of the above if
+        <para>A more complete use of the above if the
           port had no versioning and <application>foobar</application>
-          from the foo user on project bar on a self hosted <application>GitLab</application>
+          from the foo user on project bar on a self-hosted <application>GitLab</application>
           site <literal>https://gitlab.example.com</literal>, the <filename>Makefile</filename>
           ends up looking like this for fetching distribution files:</para>
 
@@ -3047,7 +3047,7 @@ GL_COMMIT=	9c1669ce60c3f4f5eb43df874d7314483fb3f8a6</programlisting>
         </tip>
 
         <note>
-          <para><varname>GL_SITE</varname>'s protocol, port and
+          <para><varname>GL_SITE</varname>'s protocol, port, and
             webroot can all be modified in the same variable.</para>
         </note>
       </example>
@@ -3066,9 +3066,9 @@ GL_COMMIT=	9c1669ce60c3f4f5eb43df874d7314483fb3f8a6</programlisting>
           <para>Multiple values are added to
             <varname>GL_SITE</varname>,
             <varname>GL_ACCOUNT</varname>,
-            <varname>GL_PROJECT</varname> and
+            <varname>GL_PROJECT</varname>, and
             <varname>GL_COMMIT</varname>.  Each different value is
-            assigned a group.
+            assigned to a group.
             <xref
               linkend="makefile-master_sites-gitlab-description"/>.</para>
 
@@ -3231,12 +3231,12 @@ EXTRACT_SUFX=	.tar.gzip</programlisting>
 	automatically set <varname>EXTRACT_SUFX</varname> to the most
 	common archives extensions as necessary, see <xref
 	  linkend="uses"/> for more details.  If neither of
-	these are set then <varname>EXTRACT_SUFX</varname> defaults to
+	these is set then <varname>EXTRACT_SUFX</varname> defaults to
 	<literal>.tar.gz</literal>.</para>
 
       <note>
 	<para>As <varname>EXTRACT_SUFX</varname> is only used in
-	  <varname>DISTFILES</varname>, only set one of them..</para>
+	  <varname>DISTFILES</varname>, only set one of them.</para>
       </note>
     </sect2>
 
@@ -3246,11 +3246,11 @@ EXTRACT_SUFX=	.tar.gzip</programlisting>
       <para>Sometimes the names of the files to be downloaded have no
 	resemblance to the name of the port.  For example, it might be
 	called <filename>source.tar.gz</filename> or similar.  In
-	other cases the application's source code might be in several
+	other cases, the application's source code might be in several
 	different archives, all of which must be downloaded.</para>
 
       <para>If this is the case, set <varname>DISTFILES</varname> to
-	be a space separated list of all the files that must be
+	be a space-separated list of all the files that must be
 	downloaded.</para>
 
       <programlisting>DISTFILES=	source1.tar.gz source2.tar.gz</programlisting>
@@ -3997,7 +3997,7 @@ PATCHFILES=	patch1:test</programlisting>
 
       <para>Do not let the port clutter
 	<filename>/usr/ports/distfiles</filename>.  If the port
-	requires a lot of files to be fetched, or contains a file that
+	requires a lot of files to be fetched or contains a file that
 	has a name that might conflict with other ports (for example,
 	<filename>Makefile</filename>), set
 	<varname>DIST_SUBDIR</varname> to the name of the port
@@ -4074,7 +4074,7 @@ PATCHFILES=	patch1:test</programlisting>
       <para>Blanket approval for most ports applies to fixes like
 	infrastructure changes, or trivial and
 	<emphasis>tested</emphasis> build and runtime fixes.  The
-	current list is available in <link
+	current list is available in the <link
 	  xlink:href="&url.articles.committers-guide;/ports.html#ports-qa-misc-blanket-approval">Ports
 	  section of the Committer's Guide</link>.</para>
     </note>
@@ -4095,7 +4095,7 @@ PATCHFILES=	patch1:test</programlisting>
 
     <para>We reserve the right to modify the maintainer's submission
       to better match existing policies and style of the Ports
-      Collection without explicit blessing from the submitter or the
+      Collection without the explicit blessing from the submitter or the
       maintainer.  Also,
       large infrastructural changes can result in a port being
       modified without the maintainer's consent.  These kinds of
@@ -5982,7 +5982,7 @@ MASTERDIR=	${.CURDIR}/../pkfonts300
 
     <para>(<filename>print/pkfonts118/Makefile</filename>,
       <filename>print/pkfonts600/Makefile</filename>, and all the
-      other are similar).
+      others are similar).
       <varname>MASTERDIR</varname> definition tells
       <filename>bsd.port.mk</filename> that the regular set of
       subdirectories like <varname>FILESDIR</varname> and
@@ -5991,7 +5991,7 @@ MASTERDIR=	${.CURDIR}/../pkfonts300
       <literal>RESOLUTION=360</literal> line will override the
       <literal>RESOLUTION=300</literal> line in
       <filename>pkfonts300/Makefile</filename> and the port will be
-      built with resolution set to 360.</para>
+      built with the resolution set to 360.</para>
   </sect1>
 
   <sect1 xml:id="makefile-manpages">
@@ -6035,7 +6035,7 @@ MASTERDIR=	${.CURDIR}/../pkfonts300
     <title>Makefile Options</title>
 
     <para>Many applications can be built with optional or differing
-      configurations.  Examples include choice of natural (human)
+      configurations.  Examples include the choice of natural (human)
       language, GUI versus command-line, or type of database to
       support.  Users may need a different configuration than the
       default, so the ports system provides hooks the port author can
@@ -7612,7 +7612,7 @@ post-patch:
 
     <para>Each port is extracted into a working directory, which must
       be writable.  The ports system defaults to having
-      <varname>DISTFILES</varname> unpack in to a directory called
+      <varname>DISTFILES</varname> unpack into a directory called
       <literal>${DISTNAME}</literal>.  In other words, if the
       <filename>Makefile</filename> has:</para>
 
@@ -7655,7 +7655,7 @@ DISTVERSION=	1.0</programlisting>
     <sect2 xml:id="makefile-no_wrksubdir">
       <title><varname>NO_WRKSUBDIR</varname></title>
 
-      <para>If the port does not extract in to a subdirectory at all,
+      <para>If the port does not extract into a subdirectory at all,
 	then set <varname>NO_WRKSUBDIR</varname> to
 	indicate that.</para>
 
@@ -7663,7 +7663,7 @@ DISTVERSION=	1.0</programlisting>
 
       <note>
 	<para>Because <varname>WRKDIR</varname> is the only directory
-	  that is supposed to be writable during the build, and is
+	  that is supposed to be writable during the build and is
 	  used to store many files recording the status of the build,
 	  the port's extraction will be forced into a
 	  subdirectory.</para>
@@ -7725,7 +7725,7 @@ DISTVERSION=	1.0</programlisting>
       </varlistentry>
     </variablelist>
 
-    <para>The most common content of one of these variable is the
+    <para>The most common content of one of these variables is the
       package base of another port.  The package base is the package
       name without the appended version, it can be obtained by running
       <command>make -V PKGBASE</command>.</para>
@@ -8150,7 +8150,7 @@ bind910</screen>
       will be prepended to <varname>PATH</varname>.</para>
 
     <para>Use it to substitute hardcoded commands the build phase
-      relies on without having to patch any build files.</para>
+      relies on, without having to patch any build files.</para>
 
     <example xml:id="binary-alias-ex1">
       <title>Using <varname>BINARY_ALIAS</varname> to Make

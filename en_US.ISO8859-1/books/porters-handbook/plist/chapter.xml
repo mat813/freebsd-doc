@@ -17,8 +17,8 @@
 
     <para>Some ports, particularly the <literal>p5-</literal> ports,
       need to change their <filename>pkg-plist</filename> depending on
-      what options they are configured with (or version of
-      <literal>perl</literal>, in the case of <literal>p5-</literal>
+      what options they are configured with (or the version of
+      <application>Perl</application>, in the case of <literal>p5-</literal>
       ports).  To make this easy, any instances in
       <filename>pkg-plist</filename> of <literal>%%OSREL%%</literal>,
       <literal>%%PERL_VER%%</literal>, and
@@ -30,7 +30,7 @@
       of <command>perl</command> (for example,
       <literal>5.8.9</literal>).  Several other
       <literal>%%<replaceable>VARS</replaceable>%%</literal> related
-      to port's documentation files are described in <link
+      to ports' documentation files are described in <link
 	linkend="install-documentation">the relevant
 	section</link>.</para>
 
@@ -118,7 +118,7 @@ OPTIONS_SUB=	yes</programlisting>
       <literal><replaceable>TAG</replaceable></literal> to
       <varname>PLIST_SUB</varname>
       inside the <filename>Makefile</filename> with a special
-      value of <literal>@comment</literal>, makes package tools to
+      value of <literal>@comment </literal> makes package tools to
       ignore the line.  For instance, if some files are only installed
       when the <literal>X11</literal> option is on and the
       architecture is <literal>i386</literal>:</para>
@@ -236,7 +236,7 @@ PLIST_SUB+=	X11I386="@comment "
     <para>A <emphasis>static package list</emphasis> is a package
       list which is available in the Ports Collection either as
       <filename>pkg-plist</filename> (with or without variable
-      substitution), or embedded into the
+      substitution) or embedded into the
       <filename>Makefile</filename> via
       <varname>PLIST_FILES</varname> and
       <varname>PLIST_DIRS</varname>.  Even if the contents are
@@ -384,7 +384,7 @@ PLIST_SUB=	PERL_ARCH=mach</programlisting>
 
     <warning>
       <para>If a keyword is used on an <link
-	  linkend="makefile-options">optional</link> entry, it must to
+	  linkend="makefile-options">optional</link> entry, it must
 	be added after the helper:</para>
 
       <programlisting>%%FOO%%@sample etc/orbit.conf.sample</programlisting>
@@ -494,7 +494,7 @@ PLIST_SUB=	PERL_ARCH=mach</programlisting>
 	<replaceable>file</replaceable>
 	[<replaceable>file</replaceable>]</title>
 
-      <para>This is used to handle installation of configuration
+      <para>This is used to handle the installation of configuration
 	files, through example files bundled with the package.  The
 	<quote>actual</quote>, non-sample, file is either the second
 	filename, if present, or the first filename without the
@@ -667,7 +667,7 @@ PLIST_SUB=	PERL_ARCH=mach</programlisting>
 
 	    <listitem>
 	      <para>Expand to the filename part of the fully qualified
-		name, or the converse of <literal>%B</literal>.  In
+		name or the converse of <literal>%B</literal>.  In
 		the example case,
 		<filename>emacs</filename>.</para>
 	    </listitem>
@@ -688,7 +688,7 @@ PLIST_SUB=	PERL_ARCH=mach</programlisting>
 	  <replaceable>mode</replaceable></title>
 
 	<para>Set default permission for all subsequently extracted
-	  files to <replaceable>mode</replaceable>.  Format is the
+	  files to <replaceable>mode</replaceable>.  The format is the
 	  same as that used by &man.chmod.1;.  Use without an arg to
 	  set back to default permissions (mode of the file while
 	  being packed).</para>
@@ -736,7 +736,7 @@ PLIST_SUB=	PERL_ARCH=mach</programlisting>
 	  under <varname>PREFIX</varname> by a package installation
 	  are automatically removed.  Use this when an empty directory
 	  under <varname>PREFIX</varname> needs to be created, or when
-	  the directory needs to have non default owner, group, or
+	  the directory needs to have non-default owner, group, or
 	  mode.  Directories outside of <varname>PREFIX</varname> need
 	  to be registered.  For example,
 	  <filename>/var/db/${PORTNAME}</filename> needs to have a
@@ -960,7 +960,7 @@ other.content</programlisting>
 	  <literal>pre-upgrade</literal>,
 	  <literal>post-upgrade</literal></title>
 
-	<para>These keywords contains a &man.sh.1; script to be
+	<para>These keywords contain a &man.sh.1; script to be
 	  executed before or after installation, deinstallation, or
 	  upgrade of the package.  In addition to the usual
 	  <literal>@exec</literal>
@@ -981,7 +981,7 @@ other.content</programlisting>
 	  <para>This keyword does two things, it adds a
 	    <literal>@dirrmtry
 	      <replaceable>directory</replaceable></literal> line to
-	    the packing list, and echoes the fact that the directory
+	    the packing list and echoes the fact that the directory
 	    is removed when deinstalling the package.</para>
 
 	  <programlisting>actions: [dirrmtry]

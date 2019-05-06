@@ -170,7 +170,7 @@
 	      porter must fix them, or upgrade to a non-vulnerable
 	      version, and send a patch to the author.  This all takes
 	      time, which results in software being vulnerable longer
-	      than necessary.  This in turn makes it harder to
+	      than necessary.  This, in turn, makes it harder to
 	      coordinate a fix without unnecessarily leaking
 	      information about the vulnerability.</para>
 	  </listitem>
@@ -181,7 +181,7 @@
 
 	  <listitem>
 	    <para>This problem is similar to the problem with security
-	      in the last paragraph, but generally less severe.</para>
+	      in the last paragraph but generally less severe.</para>
 	  </listitem>
 	</varlistentry>
 
@@ -320,10 +320,10 @@
       <package role="port">lang/mosml</package> for an
       example), or through a shell-wrapper which sets
       <varname>LD_LIBRARY_PATH</varname> before invoking the binary,
-      like <package role="port">www/seamonkey</package>
+      as <package role="port">www/seamonkey</package>
       does.</para>
 
-    <para>When installing 32-bit libraries on 64-bit system, use
+    <para>When installing 32-bit libraries on a 64-bit system, use
       <varname>USE_LDCONFIG32</varname> instead.</para>
 
     <para>If the software uses <link
@@ -377,7 +377,7 @@
 	must always be compiled from the source code, use
 	<varname>NO_PACKAGE</varname>.  For
 	example, if the application has configuration information
-	that is site specific hard coded into it at compile time,
+	that is site specific hard-coded into it at compile time,
 	set <varname>NO_PACKAGE</varname>.</para>
 
       <para>Set <varname>NO_PACKAGE</varname> to a string
@@ -519,10 +519,10 @@ IGNORE=	may not be redistributed because of licensing reasons. Please visit <rep
       <important>
 	<para>When setting <varname>MAKE_JOBS_UNSAFE</varname>, it
 	  is very important to explain either with a comment in the
-	  <filename>Makefile</filename>, or at least in the commit
+	  <filename>Makefile</filename> or at least in the commit
 	  message, <emphasis>why</emphasis> the port does not build
 	  when enabling.  Otherwise, it is almost impossible to
-	  either fix the problem, or test if it has been fixed when
+	  either fix the problem or test if it has been fixed when
 	  committing an update at a later date.</para>
       </important>
     </sect2>
@@ -598,13 +598,13 @@ IGNORE=	may not be redistributed because of licensing reasons. Please visit <rep
 	    <row>
 	      <entry><varname>GNU_CONFIGURE</varname></entry>
 	      <entry>The port uses <command>configure</command>
-		script to prepare build.</entry>
+		script to prepare the build.</entry>
 	    </row>
 
 	    <row>
 	      <entry><varname>HAS_CONFIGURE</varname></entry>
 	      <entry>Same as <varname>GNU_CONFIGURE</varname>,
-		except default configure target is not added to
+		except the default configure target is not added to
 		<varname>CONFIGURE_ARGS</varname>.</entry>
 	    </row>
 
@@ -1357,7 +1357,7 @@ PLIST_SUB+=		NLS="@comment "
 
     <para>The exception to this rule is when the relevant directory
       does not exist or the distfile does not exist in that
-      directory.  In such case, using author's id as
+      directory.  In such a case, using the author's id as
       <varname>MASTER_SITE_SUBDIR</varname> is allowed.
       The <literal>CPAN:AUTHOR</literal> macro can be used, which will
       be translated to the hashed author directory.  For example,
@@ -1376,7 +1376,7 @@ PLIST_SUB+=		NLS="@comment "
       <tgroup cols="2">
 	<thead>
 	  <row>
-	    <entry>Read only variables</entry>
+	    <entry>Read-only variables</entry>
 	    <entry>Means</entry>
 	  </row>
 	</thead>
@@ -1422,7 +1422,7 @@ PLIST_SUB+=		NLS="@comment "
 
 	  <row>
 	    <entry><varname>SITE_PERL</varname></entry>
-	    <entry>Directory name where site specific
+	    <entry>Directory name where site-specific
 	      Perl packages go.  This value is
 	      added to <varname>PLIST_SUB</varname>.</entry>
 	  </row>
@@ -1584,7 +1584,7 @@ USE_PERL5=	modbuildtiny</programlisting>
 
 	    <row>
 	      <entry><literal>ice</literal></entry>
-	      <entry>Inter Client Exchange library for X11</entry>
+	      <entry>Inter-Client Exchange library for X11</entry>
 	    </row>
 
 	    <row>
@@ -1849,7 +1849,7 @@ USE_PERL5=	modbuildtiny</programlisting>
 	components of this project, use <literal>USES= gl</literal>
 	and <varname>USE_GL</varname>.  See
 	<xref linkend="uses-gl" /> for a full list of available
-	components.  For backwards compatibility, the value of
+	components.  For backward compatibility, the value of
 	<literal>yes</literal> maps to <literal>glu</literal>.</para>
 
       <example xml:id="use-xorg-example">
@@ -2077,7 +2077,7 @@ USE_XORG=	x11 xpm</programlisting>
 	<varname>USE_GNOME</varname> infrastructure.  Include all the
 	needed components as a space-separated list.  The
 	<varname>USE_GNOME</varname> components are divided into
-	these virtual lists: basic components, GNOME 3 components
+	these virtual lists: basic components, GNOME 3 components,
 	and legacy components.  If the port needs only GTK3 libraries,
 	this is the shortest way to define it:</para>
 
@@ -2127,7 +2127,7 @@ GLIB_SCHEMAS=	 org.regexxer.gschema.xml
       <title>Variables</title>
 
       <para>This section explains which macros are available and how
-	they are used.  Like they are used in the above example.  The
+	they are used.  Like they are used in the above example.
 	<xref linkend="gnome-components"/> has a more in-depth
 	explanation.  <varname>USE_GNOME</varname> has to be set for
 	these macros to be of use.</para>
@@ -2146,7 +2146,7 @@ GLIB_SCHEMAS=	 org.regexxer.gschema.xml
 	      <filename>icon-theme.cache</filename>.  Do not include
 	      that file in <filename>pkg-plist</filename>.  This macro
 	      handles that automatically.  This macro is not needed
-	      for <application>Qt</application>, which use a
+	      for <application>Qt</application>, which uses an
 	      internal method.</para>
 	  </listitem>
 	</varlistentry>
@@ -2224,7 +2224,7 @@ GLIB_SCHEMAS=	 org.regexxer.gschema.xml
 	    <para>Open Source Metadata Framework
 	      (<acronym>OMF</acronym>) files are commonly used by
 	      GNOME 2 applications.  These files contain the
-	      application help file information, and require special
+	      application help file information and require special
 	      processing by ScrollKeeper/rarian.  To properly register
 	      <acronym>OMF</acronym> files when installing GNOME
 	      applications from packages, make sure that
@@ -2258,7 +2258,7 @@ GLIB_SCHEMAS=	 org.regexxer.gschema.xml
 	page</link> has contact information if more help is
       needed.  The components are divided into GNOME components
       that are currently in use and legacy components.  If the
-      component supports argument, they are listed between
+      component supports arguments, they are listed between
       parenthesis in the description.  The first is the default.
       "Both" is shown if the component defaults to adding to both
       build and run dependencies.</para>
@@ -2428,7 +2428,7 @@ GLIB_SCHEMAS=	 org.regexxer.gschema.xml
 	    <entry>devel/gobject-introspection</entry>
 	    <entry>Basic introspection bindings and tools to
 	      generate introspection bindings.  Most of the time
-	      :build is enough, :both/:run is only need for
+	      :build is enough, :both/:run is only needed for
 	      applications that use introspection bindings.
 	      (both, build, run)</entry>
 	  </row>
@@ -3401,7 +3401,7 @@ GLIB_SCHEMAS=	 org.regexxer.gschema.xml
 	  implies a dependency on the core library,
 	  <literal>core</literal> does not need to be specified.
 	  The Qt 5 code generation tools <command>moc</command>,
-	  <command>uic</command> and <command>rcc</command>, as well
+	  <command>uic</command>, and <command>rcc</command>, as well
 	  as the Makefile generator <command>qmake</command> are
 	  only needed at buildtime, thus they are specified with the
 	  <literal>_build</literal> suffix:</para>
@@ -3747,7 +3747,7 @@ USE_QT=	buildtools_build</programlisting>
 
 	    <row>
 	      <entry><literal>breeze</literal></entry>
-	      <entry>Plasma5 artwork, styles and assets for the Breeze
+	      <entry>Plasma5 artwork, styles, and assets for the Breeze
 		visual style</entry>
 	    </row>
 
@@ -3862,7 +3862,7 @@ USE_QT=	buildtools_build</programlisting>
 
 	    <row>
 	      <entry><literal>eventviews</literal></entry>
-	      <entry>Event view libriares for KDEPim</entry>
+	      <entry>Event view libraires for KDEPim</entry>
 	    </row>
 
 	    <row>
@@ -3878,7 +3878,7 @@ USE_QT=	buildtools_build</programlisting>
 
 	    <row>
 	      <entry><literal>gapi</literal></entry>
-	      <entry>KDE based library to access google
+	      <entry>KDE based library to access Google
 		services</entry>
 	    </row>
 
@@ -3937,7 +3937,7 @@ USE_QT=	buildtools_build</programlisting>
 
 	    <row>
 	      <entry><literal>idletime</literal></entry>
-	      <entry>KF5 library for monitoring user activity</entry>
+	      <entry>KF5 library for monitoring users activity</entry>
 	    </row>
 
 	    <row>
@@ -3947,7 +3947,7 @@ USE_QT=	buildtools_build</programlisting>
 
 	    <row>
 	      <entry><literal>incidenceeditor</literal></entry>
-	      <entry>Incidence editor libriares for KDEPim</entry>
+	      <entry>Incidence editor libraires for KDEPim</entry>
 	    </row>
 
 	    <row>
@@ -4282,7 +4282,7 @@ USE_QT=	buildtools_build</programlisting>
 
 	    <row>
 	      <entry><literal>libksieve</literal></entry>
-	      <entry>Sieve libriares for KDEPim</entry>
+	      <entry>Sieve libraires for KDEPim</entry>
 	    </row>
 
 	    <row>
@@ -4293,7 +4293,7 @@ USE_QT=	buildtools_build</programlisting>
 
 	    <row>
 	      <entry><literal>mailcommon</literal></entry>
-	      <entry>Common libriares for KDEPim</entry>
+	      <entry>Common libraires for KDEPim</entry>
 	    </row>
 
 	    <row>
@@ -4396,7 +4396,7 @@ USE_QT=	buildtools_build</programlisting>
 
 	    <row>
 	      <entry><literal>pimcommon</literal></entry>
-	      <entry>Common libriares for KDEPim</entry>
+	      <entry>Common libraires for KDEPim</entry>
 	    </row>
 
 	    <row>
@@ -4951,7 +4951,7 @@ USE_LXQT=	buildtools libfmqt</programlisting>
 
 	    <row>
 	      <entry><varname>JAVAJARDIR</varname></entry>
-	      <entry>The directory where JAR files is
+	      <entry>The directory where JAR files are
 		installed.  Default:
 		<filename>${JAVASHAREDIR}/classes</filename>.</entry>
 	    </row>
@@ -4980,7 +4980,7 @@ USE_LXQT=	buildtools libfmqt</programlisting>
 	be the sub-make command.  When no
 	<buildtarget>do-build</buildtarget> target is defined by the
 	port, a default one will be set that runs Ant according to
-	<varname>MAKE_ENV</varname>, <varname>MAKE_ARGS</varname> and
+	<varname>MAKE_ENV</varname>, <varname>MAKE_ARGS</varname>, and
 	<varname>ALL_TARGET</varname>.  This is similar to the
 	<literal>USES= gmake</literal> mechanism, which is documented
 	in <xref linkend="building"/>.</para>
@@ -5046,8 +5046,8 @@ do-install:
 	for any other port.  The Javadoc tool is known to produce a
 	different set of files depending on the version of the
 	<acronym>JDK</acronym> that is used.  For ports that do not
-	enforce the use of a particular <acronym>JDK</acronym>, it is
-	therefore a complex task to specify the packing list
+	enforce the use of a particular <acronym>JDK</acronym>, it is,
+	therefore, a complex task to specify the packing list
 	(<filename>pkg-plist</filename>).  This is one reason why
 	porters are strongly encouraged to use
 	<varname>PORTDOCS</varname>.  Moreover, even if the set of
@@ -5140,7 +5140,7 @@ do-install:
 	      <entry><varname>APACHE_VERSION</varname></entry>
 	      <entry>The version of present Apache installation
 		(read-only variable).  This variable is only
-		available after inclusion of
+		available after the inclusion of
 		<filename>bsd.port.pre.mk</filename>.  Possible
 		values: <literal>22</literal>,
 		<literal>24</literal>.</entry>
@@ -5293,19 +5293,19 @@ USES=	pear
 
       <tip>
 	<para><application>PEAR</application> modules will
-	  automatically be flavorized using <link
+	  automatically be flavored using <link
 	    linkend="flavors-auto-php"><application>PHP</application>
 	    flavors</link>.</para>
       </tip>
 
       <note>
-	<para>If a non default <varname>PEAR_CHANNEL</varname> is
+	<para>If a non-default <varname>PEAR_CHANNEL</varname> is
 	  used, the build and run-time dependencies will automatically
 	  be added.</para>
       </note>
 
       <important>
-	<para>PEAR modules do not need to defined
+	<para>PEAR modules do not need to define
 	  <varname>PKGNAMESUFFIX</varname> it is automatically filled
 	  in using <varname>PEAR_PKGNAMEPREFIX</varname>.  If a port
 	  needs to add to <varname>PKGNAMEPREFIX</varname>, it must
@@ -5363,7 +5363,7 @@ SOCKETS_USE=	PHP=sockets
 	<tip>
 	  <para>As <application>Horde</application> modules are also
 	    <application>PEAR</application> modules they will also
-	    automatically be flavorized using <link
+	    automatically be flavored using <link
 	      linkend="flavors-auto-php"><application>PHP</application>
 	      flavors</link>.</para>
 	</tip>
@@ -5374,7 +5374,7 @@ SOCKETS_USE=	PHP=sockets
   <sect1 xml:id="using-python">
     <title>Using Python</title>
 
-    <para>The Ports Collection supports parallel installation of
+    <para>The Ports Collection supports the parallel installation of
       multiple Python versions.  Ports must use a
       correct <command>python</command> interpreter, according to
       the user-settable <varname>PYTHON_VERSION</varname>.
@@ -5426,7 +5426,7 @@ SOCKETS_USE=	PHP=sockets
 
 	  <row>
 	    <entry><varname>USE_PYTHON=concurrent</varname></entry>
-	    <entry>The port will use an unique prefix, typically
+	    <entry>The port will use a unique prefix, typically
 	      <literal>PYTHON_PKGNAMEPREFIX</literal> for certain
 	      directories, such as <literal>EXAMPLESDIR</literal> and
 	      <literal>DOCSDIR</literal> and also will append a
@@ -5483,7 +5483,7 @@ SOCKETS_USE=	PHP=sockets
 	  <row>
 	    <entry><varname>PYTHON_CMD</varname></entry>
 	    <entry>Python interpreter command line, including
-	      version number.</entry>
+	      the version number.</entry>
 	  </row>
 	</tbody>
       </tgroup>
@@ -5502,7 +5502,7 @@ SOCKETS_USE=	PHP=sockets
 	  <row>
 	    <entry><varname>PYNUMPY</varname></entry>
 	    <entry>Dependency line for the new numeric extension,
-	      numpy.  (PYNUMERIC is deprecated by upstream
+	      numpy.  (PYNUMERIC is deprecated by the upstream
 	      vendor).</entry>
 	  </row>
 
@@ -5613,7 +5613,7 @@ USE_PYTHON=	autoplist distutils
   <sect1 xml:id="using-tcl">
     <title>Using <application>Tcl/Tk</application></title>
 
-    <para>The Ports Collection supports parallel installation of
+    <para>The Ports Collection supports the parallel installation of
       multiple <application>Tcl/Tk</application> versions.  Ports
       should try to support at least the default
       <application>Tcl/Tk</application> version and higher with
@@ -5957,7 +5957,7 @@ USE_PYTHON=	autoplist distutils
       <para>There are many versions of the
 	<application>wxWidgets</application> libraries which
 	conflict between them (install files under the same name).
-	In the ports tree this problem has been solved by installing
+	In the ports tree, this problem has been solved by installing
 	each version under a different name using version number
 	suffixes.</para>
 
@@ -5967,9 +5967,9 @@ USE_PYTHON=	autoplist distutils
 	<command>wx-config</command> script to determine the
 	necessary compiler and linker flags.  The script is named
 	differently for every available version.  Majority of
-	applications respect an environment variable, or accept a
+	applications respect an environment variable or accept a
 	configure argument, to specify which
-	<command>wx-config</command> script to call.  Otherwise they
+	<command>wx-config</command> script to call.  Otherwise, they
 	have to be patched.</para>
     </sect2>
 
@@ -6327,7 +6327,7 @@ CONFIGURE_ARGS+=	--enable-wxpython
 	      <entry><varname>WX_CONFIG</varname></entry>
 	      <entry>The path to the
 		<application>wxWidgets</application>
-		<command>wx-config</command> script (with different
+		<command>wx-config</command> script (with a different
 		name)</entry>
 	    </row>
 
@@ -6335,7 +6335,7 @@ CONFIGURE_ARGS+=	--enable-wxpython
 	      <entry><varname>WXRC_CMD</varname></entry>
 	      <entry>The path to the
 		<application>wxWidgets</application>
-		<command>wxrc</command> program (with different
+		<command>wxrc</command> program (with a different
 		name)</entry>
 	    </row>
 
@@ -6360,7 +6360,7 @@ CONFIGURE_ARGS+=	--enable-wxpython
 
       <important>
 	<para>When defining <varname>WX_PREMK</varname>, then the
-	  version, dependencies, components and defined variables
+	  version, dependencies, components, and defined variables
 	  will not change if modifying the
 	  <application>wxWidgets</application> port variables
 	  <emphasis>after</emphasis> including
@@ -6405,7 +6405,7 @@ PLIST_SUB+=	VERSION="${VER_STR}"
 	<literal>WX_CONFIG</literal> environment variable set,
 	requiring additional arguments.
 	<varname>WX_CONF_ARGS</varname> can be used for
-	provide them.</para>
+	providing them.</para>
 
       <table frame="none" xml:id="wx-conf-args-values">
 	<title>Legal Values for
@@ -6449,7 +6449,7 @@ PLIST_SUB+=	VERSION="${VER_STR}"
       <para>There are many versions of the
 	<application>Lua</application> libraries and corresponding
 	interpreters, which conflict between them (install files
-	under the same name).  In the ports tree this problem has
+	under the same name).  In the ports tree, this problem has
 	been solved by installing each version under a different
 	name using version number suffixes.</para>
 
@@ -6900,7 +6900,7 @@ USE_XFCE=	libexo libmenu libutil panel</programlisting>
       <title>Using MySQL</title>
 
       <para>When a port needs the <application>MySQL</application>
-	client library add</para>
+	client library add:</para>
 
       <programlisting>USES=	mysql</programlisting>
 
@@ -6913,7 +6913,7 @@ USE_XFCE=	libexo libmenu libutil panel</programlisting>
 
       <para>When a port needs the
 	<application>PostgreSQL</application> server version 9.6
-	or later add</para>
+	or later add:</para>
 
       <programlisting>USES=		pgsql:9.6+
 WANT_PGSQL=	server</programlisting>
@@ -6942,7 +6942,7 @@ WANT_PGSQL=	server</programlisting>
       Ports integrate into the system <filename>rc.d</filename>
       framework.  Details on its usage can be found in <link
 	xlink:href="&url.books.handbook;/configtuning-rcd.html">the
-	rc.d Handbook chapter</link>.  Detailed explanation of
+	rc.d Handbook chapter</link>.  A detailed explanation of
       the available commands is provided in &man.rc.8; and
       &man.rc.subr.8;.  Finally, there is
       <link xlink:href="&url.articles.rc-scripting;">an
@@ -6960,7 +6960,7 @@ WANT_PGSQL=	server</programlisting>
       Scripts must be placed in the <filename>files</filename>
       subdirectory and a <literal>.in</literal> suffix must be added
       to their filename.  Standard <varname>SUB_LIST</varname>
-      expansions will be ran against this file.  Use of the
+      expansions will be run against this file.  Use of the
       <literal>%%PREFIX%%</literal> and
       <literal>%%LOCALBASE%%</literal> expansions is strongly
       encouraged as well.  More on <varname>SUB_LIST</varname> in
@@ -7023,7 +7023,7 @@ run_rc_command "$1"</programlisting>
     <para>If the script is not starting a persistent service this is
       not necessary.</para>
 
-    <para>For optional configuration elements the &quot;=&quot;
+    <para>For optional configuration elements, the &quot;=&quot;
       style of default variable assignment is preferable to the
       &quot;:=&quot; style here, since the former sets a default
       value only if the variable is unset, and the latter sets one
@@ -7035,7 +7035,7 @@ run_rc_command "$1"</programlisting>
     <para>in their <filename>rc.conf.local</filename>, and a
       variable substitution using &quot;:=&quot; would
       inappropriately override the user's intention.  The
-      <literal>_enable</literal> variable is not optional,
+      <literal>_enable</literal> variable is not optional
       and must use the &quot;:&quot; for the default.</para>
 
     <important>
@@ -7057,7 +7057,7 @@ run_rc_command "$1"</programlisting>
 
       <para>The <package role="port">devel/rclint</package>
 	port can check for most of these, but it is not a
-	substitute for proper review.</para>
+	substitute for a proper review.</para>
 
       <procedure>
 	<step>
@@ -7177,7 +7177,7 @@ run_rc_command "$1"</programlisting>
 
 	<step>
 	  <para>Does the script execute any code unconditionally?
-	    This is frowned on.  Usually these things must be
+	    This is frowned on.  Usually, these things must be
 	    dealt with through a
 	    <function>start_precmd</function>.</para>
 	</step>
@@ -7256,7 +7256,7 @@ GROUPS=	pulse pulse-access pulse-rt</programlisting>
     <title>Go Libraries</title>
 
     <para>Ports must not package or install Go libs or source code.
-      Go ports must fetch the required deps at the normal fetch time
+      Go ports must fetch the required dependencies at the normal fetch time
       and should only install the programs and things users need, not
       the things Go developers would need.</para>
 
@@ -7264,17 +7264,17 @@ GROUPS=	pulse pulse-access pulse-rt</programlisting>
 
     <itemizedlist>
       <listitem>
-	<para>Use vendored dependencies included with the package
+	<para>Use vendor dependencies included with the package
 	  source.</para>
       </listitem>
 
       <listitem>
-	<para>Fetch the versions of deps specified by upstream (in the
+	<para>Fetch the versions of dependencies specified by upstream (in the
 	  case of go.mod, vendor.json or similar).</para>
       </listitem>
 
       <listitem>
-	<para>As a last resort (deps are not included nor versions
+	<para>As a last resort (dependencies are not included nor versions
 	  specified exactly) fetch versions of dependencies available
 	  at the time of upstream development/release.</para>
       </listitem>

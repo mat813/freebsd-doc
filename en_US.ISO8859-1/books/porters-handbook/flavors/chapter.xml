@@ -61,11 +61,11 @@
 lite_PKGNAMESUFFIX=	-lite
 [...]
 .if ${FLAVOR:U} != lite
-[enable non lite features]
+[enable non-lite features]
 .endif</programlisting>
 
       <note>
-	<para>The first flavor is the default one, and is called,
+	<para>The first flavor is the default one and is called,
 	  here, <literal>default</literal>.  It is not an obligation,
 	  and if possible, use a more specific flavor name, like in
 	  <xref linkend="flavors-using-ex2"/>.</para>
@@ -283,7 +283,7 @@ lite_PKGNAMESUFFIX=	-lite</programlisting>
     <example xml:id="flavors-auto-php-ex1">
       <title>Simple <literal>USES=php</literal> Extension</title>
 
-      <para>This will generate package for all the supported
+      <para>This will generate a packages for all the supported
 	versions:</para>
 
       <programlisting>PORTNAME=	some-ext
@@ -292,7 +292,7 @@ PKGNAMEPREFIX=	${PHP_PKGNAMEPREFIX}
 
 USES=		php:ext</programlisting>
 
-      <para>This will generate package for all the supported
+      <para>This will generate a packages for all the supported
 	versions but 7.2:</para>
 
       <programlisting>PORTNAME=	some-ext
@@ -306,14 +306,14 @@ IGNORE_WITH_PHP=	72</programlisting>
     <sect2 xml:id="flavors-auto-php-app">
       <title>PHP Flavors with PHP Applications</title>
 
-      <para>PHP applications can also be flavorized.</para>
+      <para>PHP applications can also be flavored.</para>
 
-      <para>This allows generating packages for all PHP versions, so
+      <para>This allows generating packages for all PHP versions so
 	that users can use them with whatever version they need on
 	their servers.</para>
 
       <important>
-	<para>PHP applications that are flavorized
+	<para>PHP applications that are flavored
 	  <emphasis>must</emphasis> append
 	  <varname>PHP_PKGNAMESUFFIX</varname> to their package
 	  names.</para>
@@ -368,7 +368,7 @@ USE_PYTHON=	distutils</programlisting>
 USE_PYTHON=	distutils allflavors</programlisting>
 
       <para>Will get these flavors: <literal>py27</literal>,
-	<literal>py34</literal>, <literal>py35</literal> and
+	<literal>py34</literal>, <literal>py35</literal>, and
 	<literal>py36</literal>.</para>
     </example>
 
@@ -408,7 +408,7 @@ USE_PYTHON=	distutils allflavors</programlisting>
       on the correct version of <application>Python</application>
       modules.  All dependencies on flavored Python ports should
       use <varname>PY_FLAVOR</varname>, and not
-      <varname>FLAVOR</varname> directly..</para>
+      <varname>FLAVOR</varname> directly.</para>
 
     <example xml:id="flavors-auto-python-ex3">
       <title>For a Port Not Using

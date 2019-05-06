@@ -36,7 +36,7 @@
   <para>However, sometimes people forget to put the name of the port
     into the Summary field in an unambiguous fashion.  In that
     case, try searching in the <literal>Comment</literal> field in
-    the <literal>Detailled Bug Information</literal> section, or try
+    the <literal>Detailed Bug Information</literal> section, or try
     the
     <link linkend="portsmon">&os; Ports Monitoring System</link>
     (also known as <literal>portsmon</literal>).  This system
@@ -122,7 +122,7 @@
     maintaining the port, be sure to put
     <literal>[MAINTAINER]</literal> at the beginning of the
     <literal>Summary</literal> line.  Always include the category
-    with the port name, followed by colon, and brief descripton of the
+    with the port name, followed by a colon, and brief description of the
     issue.  For example:
     <literal><replaceable>category/portname</replaceable>:
       <replaceable>add FOO option</replaceable></literal>, or if
@@ -168,7 +168,7 @@
     <para>When possible, please submit a &man.svn.1; diff.  They
       are easier to handle than diffs between
       <quote>new and old</quote> directories.  It is easier
-      to see what has changed, and to update the diff if
+      to see what has changed and to update the diff if
       something was modified in the Ports Collection since the
       work on it began, or if the
       committer asks for something to be fixed.  Also, a patch
@@ -217,7 +217,7 @@
     <calloutlist>
       <callout arearefs="svn-update">
 	<para>This will attempt to merge the differences between the
-	  patch and current repository version.  Watch the output
+	  patch and the current repository version.  Watch the output
 	  carefully.  The letter in front of each file name
 	  indicates what was done with it.  See
 	  <xref linkend="table-svn-up"/> for a complete list.</para>
@@ -244,13 +244,13 @@
 
 	  <row>
 	    <entry>M</entry>
-	    <entry>The file had been modified, and was merged
+	    <entry>The file had been modified and was merged
 	      without conflicts.</entry>
 	  </row>
 
 	  <row>
 	    <entry>C</entry>
-	    <entry>The file had been modified, and was merged with
+	    <entry>The file had been modified and was merged with
 	      conflicts.</entry>
 	  </row>
 	</tbody>
@@ -262,7 +262,7 @@
       the <application>Subversion</application> repository and
       &man.svn.1; was not able to merge the local changes with those
       from the repository.  It is always a good idea to inspect the
-      changes anyway, since &man.svn.1; does not know anything about
+      changes anyway since &man.svn.1; does not know anything about
       the structure of a port, so it might (and probably will) merge
       things that do not make sense.</para>
 

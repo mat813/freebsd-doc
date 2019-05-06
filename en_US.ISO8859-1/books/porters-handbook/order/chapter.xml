@@ -14,7 +14,7 @@
   <para>The first sections of the <filename>Makefile</filename>
     must always come in the same order.  This standard makes it so
     everyone can easily read any port without having to search for
-    variables in a random order.</para>
+    variables in random order.</para>
 
   <para>The first line of a <filename>Makefile</filename> is always
     a comment containing the <application>Subversion</application>
@@ -32,7 +32,7 @@
 
   <note>
     <para>The sections and variables described here are mandatory in
-      a ordinary port.  In a slave port, many sections variables and
+      an ordinary port.  In a slave port, many sections variables and
       can be skipped.</para>
   </note>
 
@@ -401,7 +401,7 @@
     <title><varname>USES</varname> and
       <varname>USE_<replaceable>x</replaceable></varname></title>
 
-    <para>Start this section with defining <varname>USES</varname>,
+    <para>Start this section with defining <varname>USES</varname>
       and then possible
       <varname>USE_<replaceable>x</replaceable></varname>.</para>
 
@@ -420,7 +420,7 @@
       <filename>bsd.port.mk</filename> that do not belong in any
       of the previous section blocks.</para>
 
-    <para>Order is not important, however try to keep similar
+    <para>Order is not important, however, try to keep similar
       variables together.  For example uid and gid variables
       <varname>USERS</varname> and <varname>GROUPS</varname>.
       Configuration variables
@@ -447,7 +447,7 @@
       <title>Options Variables Order Example</title>
 
       <para>The <literal>FOO</literal> and <literal>BAR</literal>
-	options do not have a standard description, so one need to
+	options do not have a standard description, so one needs to
 	be written.  The other options already have one in
 	<filename>Mk/bsd.options.desc.mk</filename> so writing one
 	is not needed.  The <literal>DOCS</literal> and
@@ -528,7 +528,7 @@ post-install-EXAMPLES-on:
     </itemizedlist>
 
     <tip>
-      <para>When using options helpers target keep them alphabetically
+      <para>When using options helpers targets, keep them alphabetically
 	sorted, but keep the
 	<literal><replaceable>*</replaceable>-on</literal> before the
 	<literal><replaceable>*</replaceable>-off</literal>.  When

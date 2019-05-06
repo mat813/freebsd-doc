@@ -54,7 +54,7 @@ PATCHFILES=	xdvi-18.patch1.gz xdvi-18.patch2.gz
 PATCH_DIST_STRIP=	-p1
 
 [maintainer; *mandatory*!  This is the person who is volunteering to
- handle port updates, build breakages, and to whom a users can direct
+ handle port updates, build breakages, and to whom users can direct
  questions and bug reports.  To keep the quality of the Ports Collection
  as high as possible, we do not accept new ports that are assigned to
  "ports@FreeBSD.org".]
@@ -72,7 +72,7 @@ RUN_DEPENDS=	gs:print/ghostscript
 USES= gmake
 [If it is an X application and requires "xmkmf -a" to be run...]
 USES= imake
-[If the source is obtained from github, remove MASTER_SITE* and...]
+[If the source is obtained from GitHub, remove MASTER_SITE* and...]
 USE_GITHUB=	yes
 GH_ACCOUNT=	example
 
@@ -101,10 +101,10 @@ MY_FAVORITE_RESPONSE=	"yeah, right"
 
 [then the special rules, in the order they are called]
 pre-fetch:
-	i go fetch something, yeah
+	I go fetch something, yeah
 
 post-patch:
-	i need to do something after patch, great
+	I need to do something after patches are applied, great
 
 pre-install:
 	and then some more stuff before installing, wow

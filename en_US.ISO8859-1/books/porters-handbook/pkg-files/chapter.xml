@@ -196,8 +196,8 @@
       <varname>DOCSDIR</varname>, <varname>EXAMPLESDIR</varname>,
       <varname>WWWDIR</varname>, and <varname>ETCDIR</varname>.  Any
       line beginning with <literal>@comment</literal> followed by a
-      space, will be deleted
-      from resulting files after a variable substitution.</para>
+      space will be deleted
+      from resulting files after variable substitution.</para>
 
     <para>This example replaces
       <literal>%%ARCH%%</literal> with the system architecture in a

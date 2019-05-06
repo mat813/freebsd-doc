@@ -36,12 +36,12 @@
       remain unnoticed for years because often it does not cause
       software malfunction.  Second, a malicious party can use it to
       gain unauthorized access to a vulnerable system, to destroy or
-      alter sensitive data; and in the worst case the user will not
+      alter sensitive data; and in the worst case, the user will not
       even notice the harm caused.  Third, exposing a vulnerable
       system often assists attackers to break into other systems that
       could not be compromised otherwise.  Therefore closing a
       vulnerability alone is not enough: notify the audience
-      of it in the most clear and comprehensive manner, which
+      of it in the clearest and comprehensive manner, which
       will allow them to evaluate the danger and take appropriate
       action.</para>
   </sect1>
@@ -150,7 +150,7 @@
 	tags, that is, more complex rules of nesting them.  This is
 	similar to HTML.  The major difference is that XML is
 	e<emphasis>X</emphasis>tensible, that is, based on defining
-	custom tags.  Due to its intrinsic structure XML puts
+	custom tags.  Due to its intrinsic structure, XML puts
 	otherwise amorphous data into shape.  VuXML is particularly
 	tailored to mark up descriptions of security
 	vulnerabilities.</para>
@@ -298,7 +298,7 @@
 	  <para>Several related package groups (essentially, ports)
 	    can be listed in the <literal>&lt;affected&gt;</literal>
 	    section.  This can be used if several software products
-	    (say FooBar, FreeBar and OpenBar) grow from the same code
+	    (say FooBar, FreeBar, and OpenBar) grow from the same code
 	    base and still share its bugs and vulnerabilities.  Note
 	    the difference from listing multiple names within a single
 	    &lt;package&gt; section.</para>
@@ -321,7 +321,7 @@
 	    field.  At least enclosing <literal>&lt;p&gt;</literal>
 	    and <literal>&lt;/p&gt;</literal> has to appear.  More
 	    complex mark-up may be used, but only for the sake of
-	    accuracy and clarity: No eye candy please.</para>
+	    accuracy and clarity: No eye candy, please.</para>
 	</callout>
 
 	<callout arearefs="co-vx-ref">

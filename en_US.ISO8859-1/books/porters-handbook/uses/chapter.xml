@@ -35,11 +35,11 @@
       requirements and settings for a port.  They can add
       dependencies, change building behavior, add metadata to
       packages, and so on, all by selecting simple, preset
-      values..</para>
+      values.</para>
 
     <para>Each section in this chapter describes a possible value for
       <varname>USES</varname>, along with its possible arguments.
-      Arguments are appeneded to the value after a colon
+      Arguments are appended to the value after a colon
       (<literal>:</literal>).  Multiple arguments are separated by
       commas (<literal>,</literal>).</para>
 
@@ -269,15 +269,15 @@
     <para>Uses <application>CMake</application> for configuring and
       building.</para>
 
-    <para>By default an out-of-source build is performed, leaving the
+    <para>By default, an out-of-source build is performed, leaving the
       sources in <varname>WRKSRC</varname> free from build artifacts.
       With the <literal>insource</literal> argument, an in-source
       build will be performed instead.  Setting it should be the
       exception when a regular out-of-source build does not
       work.</para>
 
-    <para>By default <application>Ninja</application> is used for
-      the build.  In some cases this does not work correctly.  With
+    <para>By default, <application>Ninja</application> is used for
+      the build.  In some cases, this does not work correctly.  With
       the <literal>noninja</literal> argument, the build will
       fallback to using regular <command>make</command> for builds.
       It should only be used if a
@@ -447,7 +447,7 @@
     <para>Uses the Comprehensive R Archive Network.  Specify
       <varname>auto-plist</varname> to automatically generate
       <filename>pkg-plist</filename>.  Specify
-      <literal>compiles</literal> if the port has code that need to be
+      <literal>compiles</literal> if the port has code that needs to be
       compiled.</para>
   </sect1>
 
@@ -537,7 +537,7 @@
       <literal>7</literal>, <literal>module</literal>,
       <literal>theme</literal></para>
 
-    <para>Automate installation of a port that is a
+    <para>Automate the installation of a port that is a
       <application>Drupal</application> theme or module.  Use with the
       version of Drupal that the port is expecting.  For example,
       <literal>USES=drupal:7,module</literal> says that this port
@@ -1147,7 +1147,7 @@ USE_GNOME=	gnomemenus3:build intlhack</programlisting>
     <para>Possible arguments: (none),
       <literal>modules</literal></para>
 
-    <para>Sets default values and targets used to build
+    <para>Sets default, values and targets used to build
       <application>Go</application> software.  A build-time dependency
       on <package role="port">lang/go</package> is added.  By default
       the build is performed in GOPATH mode.  If Go software uses
@@ -1170,7 +1170,7 @@ USE_GNOME=	gnomemenus3:build intlhack</programlisting>
 	    as a default for <varname>GO_TARGET</varname>.  If not set
 	    explicitly and <varname>GH_SUBDIR</varname> is present,
 	    <varname>GO_PKGNAME</varname> value will be inferred from
-	    <varname>${GH_SUBDIR}</varname>, otherwise it will be set
+	    <varname>${GH_SUBDIR}</varname>, otherwise, it will be set
 	    to  <varname>${PORTNAME}</varname>.</para>
 	</listitem>
       </varlistentry>
@@ -1387,7 +1387,7 @@ GSSAPI_NONE_CONFIGURE_ON=	--without-gssapi</programlisting>
       <buildtarget>configure</buildtarget> target is not set.  If the
       <option>-a</option> flag is a problem for the port, add the
       <literal>notall</literal> argument.  If <command>xmkmf</command>
-      does not generate a <buildtarget>install.man</buildtarget>
+      does not generate an <buildtarget>install.man</buildtarget>
       target, add the <literal>noman</literal> argument.</para>
   </sect1>
 
@@ -1510,7 +1510,7 @@ GSSAPI_NONE_CONFIGURE_ON=	--without-gssapi</programlisting>
 
     <para>Ports <application>Linux</application> compatibility
       framework.  Specify <literal>c6</literal> to depend on
-      <application>CentOS</application> 6 packags.  Specify
+      <application>CentOS</application> 6 packages.  Specify
       <literal>c7</literal> to depend on
       <application>CentOS</application> 7 packages.  The available
       packages are:</para>
@@ -1835,9 +1835,9 @@ GSSAPI_NONE_CONFIGURE_ON=	--without-gssapi</programlisting>
       <literal>build</literal>, <literal>run</literal></para>
 
     <para>Adds a dependency on <application>Lua</application>.  By
-      default this is a library dependency, unless overridden by the
+      default, this is a library dependency unless overridden by the
       <literal>build</literal> or <literal>run</literal> option.  The
-      default version is 5.2, unless set by the
+      default version is 5.2 unless set by the
       <literal><replaceable>XY</replaceable></literal> parameter (for
       example, <literal>51</literal> or
       <literal>52+</literal>).</para>
@@ -2182,8 +2182,8 @@ USE_MATE=	menus:build intlhack</programlisting>
       <literal><replaceable>X.Y</replaceable>+</literal>,
       <literal><replaceable>X.Y</replaceable>-</literal></para>
 
-    <para>Provide support for PostgreSQL.  Maintainer can set version
-      required.  Minimum and maximum versions can be specified; for
+    <para>Provide support for PostgreSQL.  The maintainer can set the
+      required version.  Minimum and maximum versions can be specified; for
       example, 9.0-, 8.4+.</para>
 
     <para>Add PostgreSQL component dependency, using
@@ -2412,7 +2412,7 @@ USE_MATE=	menus:build intlhack</programlisting>
 	    <literal>20</literal>, for extensions that depend on
 	    another extension, the priority is automatically set to
 	    <literal>30</literal>.  Some extensions may need to be
-	    loaded before every other extension, for example <package
+	    loaded before every other extension, for example, <package
 	      role="port">www/php56-opcache</package>.  Some may need
 	    to be loaded after an extension with a priority of
 	    <literal>30</literal>.  In that case, add
@@ -2493,7 +2493,7 @@ PHP_MOD_PRIO=	40</programlisting>
     <para>Possible arguments: (none), <literal>ffi</literal></para>
 
     <para>Uses <package role="port">lang/pure</package>.  Largely used
-      for building related <application>pure</application> ports.
+      to build related <application>pure</application> ports.
       With the <literal>ffi</literal> argument, it implies <package
 	role="port">devel/pure-ffi</package> as a run-time
       dependency.</para>
@@ -2799,7 +2799,7 @@ USE_PYQT=	core doc_build designer_run</programlisting>
       <package role="port">misc/shared-mime-info</package>.  This uses
       will automatically add a post-install step in such a way that
       the port itself still can specify there own post-install step if
-      needed.  It also add an <link
+      needed.  It also adds an <link
 	linkend="plist-keywords-shared-mime-info"><literal>@shared-mime-info</literal></link>
       entry to the plist.</para>
   </sect1>
@@ -2854,7 +2854,7 @@ USE_PYQT=	core doc_build designer_run</programlisting>
       </varlistentry>
     </variablelist>
 
-    <para>Currently
+    <para>Currently,
       <application>Bash</application>,
       <application>Java</application>, <application>Ksh</application>,
       <application>Lua</application>,
@@ -2889,7 +2889,7 @@ USE_PYQT=	core doc_build designer_run</programlisting>
 	<term><varname><replaceable>interp</replaceable>_OLD_CMD</varname></term>
 	<listitem>
 	  <para>The list of wrong invocations of interpreters.  These
-	    are typically obsolete paths, or paths used on other
+	    are typically obsolete paths or paths used on other
 	    operating systems that are incorrect on &os;.  They
 	    will be replaced by the correct path in
 	    <varname><replaceable>interp</replaceable>_CMD</varname>.</para>
@@ -2919,7 +2919,7 @@ USE_PYQT=	core doc_build designer_run</programlisting>
 	<buildtarget>patch</buildtarget> phase.  If scripts are
 	created with incorrect shebangs during the
 	<buildtarget>build</buildtarget> phase, the build process (for
-	example, the <filename>configure</filename> script, or the
+	example, the <filename>configure</filename> script or the
 	<filename>Makefiles</filename>) must be patched or given the
 	right path (for example, with
 	<varname>CONFIGURE_ENV</varname>,
@@ -3356,7 +3356,7 @@ BROKEN_SSL_REASON_libressl=	needs features only available in OpenSSL</programlis
       <literal>infozip</literal></para>
 
     <para>Indicates that the distribution files use the ZIP
-      compression algorithm.  For files using the InfoZip algorithm
+      compression algorithm.  For files using the InfoZip algorithm,
       the <literal>infozip</literal> argument must be passed to set
       the appropriate dependencies.</para>
   </sect1>

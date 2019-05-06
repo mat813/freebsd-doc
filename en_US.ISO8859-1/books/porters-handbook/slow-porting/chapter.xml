@@ -38,7 +38,7 @@
 	  files in <varname>DISTDIR</varname> it will look up the URL
 	  <varname>MASTER_SITES</varname>, which is set in the
 	  Makefile, as well as our FTP mirrors where we put distfiles
-	  as backup.  It will then attempt to fetch the named
+	  as a backup.  It will then attempt to fetch the named
 	  distribution file with <varname>FETCH</varname>, assuming
 	  that the requesting site has direct access to the Internet.
 	  If that succeeds, it will save the file in
@@ -126,7 +126,7 @@
 
     <para>For example, if there is a
       <buildtarget>post-extract</buildtarget> target defined in the
-      <filename>Makefile</filename>, and a file
+      <filename>Makefile</filename> and a file
       <filename>pre-build</filename> in the
       <filename>scripts</filename> subdirectory, the
       <buildtarget>post-extract</buildtarget> target will be called
@@ -134,7 +134,7 @@
       <filename>pre-build</filename> will be executed before
       the default build rules are done.  It is recommended to
       use <filename>Makefile</filename> targets if the actions are
-      simple enough, because it will be easier for someone to figure
+      simple enough because it will be easier for someone to figure
       out what kind of non-default action the port requires.</para>
 
     <para>The default actions are done by the
@@ -187,7 +187,7 @@
       <xref linkend="makefile-master_sites"/> for details.</para>
 
     <para>If there is no FTP/HTTP site that is well-connected to
-      the net, or can only find sites that have irritatingly
+      the net or can only find sites that have irritatingly
       non-standard formats, put a copy on a reliable
       FTP or HTTP server (for example, a home
       page).</para>
@@ -536,7 +536,7 @@ FOO_EXTRA_PATCHES=	${PATCHDIR}/foo-patches</programlisting>
     <para>Include any additional customization commands in the
       <filename>configure</filename> script and save it in the
       <filename>scripts</filename> subdirectory.  As mentioned above,
-      it is also possible do this with <filename>Makefile</filename>
+      it is also possible to do this with <filename>Makefile</filename>
       targets and/or scripts with the name
       <filename>pre-configure</filename> or
       <filename>post-configure</filename>.</para>

@@ -94,7 +94,7 @@ COMMENT=	Cat chasing a mouse all over the screen
 
       <note>
 	<para>This is <emphasis>not</emphasis> a manual or an
-	  in-depth description on how to use or compile the port!
+	  in-depth description of how to use or compile the port!
 	  <emphasis>Please be careful when copying from the
 	  <filename>README</filename> or manpage</emphasis>.  Too
 	  often they are not a concise description of the port or

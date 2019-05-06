@@ -67,7 +67,7 @@
     <para>Some code needs modifications or
       conditional compilation based upon what version of &os; Unix it
       is running under.  The preferred way to tell &os; versions apart
-      are the <literal>__FreeBSD_version</literal> and
+      is to use the <literal>__FreeBSD_version</literal> and
       <literal>__FreeBSD__</literal> macros defined in <link
 	xlink:href="https://svnweb.freebsd.org/base/head/sys/sys/param.h?view=markup">sys/param.h</link>.
       If this file is not included add the code,</para>
@@ -447,7 +447,7 @@ cc -o someprogram source1.o source2.o -L/usr/local/lib -lsomelib</programlisting
 	    is no released upgrade.  Ideally upgrade ports as soon as
 	    possible when a security vulnerability is discovered so as
 	    to reduce the number of vulnerable &os; hosts (we like
-	    being known for being secure), however sometimes there is
+	    being known for being secure), however, sometimes there is
 	    a noticeable time gap between disclosure of a
 	    vulnerability and an updated release of the vulnerable
 	    software.  Do not mark a port <varname>FORBIDDEN</varname>
@@ -656,7 +656,7 @@ cc -o someprogram source1.o source2.o -L/usr/local/lib -lsomelib</programlisting
       Verify that the changes are official and have been performed
       by the author.  It has happened in the past that the distfile
       was silently altered on the download servers with the intent to
-      cause harm or compromise end user security.</para>
+      cause harm or compromise end-user security.</para>
 
     <para>Put the old distfile aside, download the new one, unpack
       them and compare the content with &man.diff.1;.  If there is

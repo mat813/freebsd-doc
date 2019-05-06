@@ -20,15 +20,15 @@
       already been committed is by subscribing to <link
 	xlink:href="http://www.FreshPorts.org/">FreshPorts</link>.
       Multiple ports can be monitored.  Maintainers are
-      strongly encouraged to subscribe, because they will receive
-      notification of not only their own changes, but also any changes
+      strongly encouraged to subscribe because they will receive
+      notification of not only their own changes but also any changes
       that any other &os; committer has made.  (These are often
       necessary to keep up with changes in the underlying ports
       framework&mdash;although it would be most polite to receive an
       advance heads-up from those committing such changes, sometimes
       this is overlooked or impractical.  Also, in some
       cases, the changes are very minor in nature.  We expect everyone
-      to use their best judgement in these cases.)</para>
+      to use their best judgment in these cases.)</para>
 
     <para>To use FreshPorts, an account is required.  Those with
       registered email addresses at <literal>@FreeBSD.org</literal>
