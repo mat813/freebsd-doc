@@ -2872,6 +2872,43 @@ GLIB_SCHEMAS=	 org.regexxer.gschema.xml
     </table>
   </sect1>
 
+  <sect1 xml:id="using-qt-dist">
+    <title>Using Qt Dist</title>
+    <sect2 xml:id="qt-dist-common">
+      <para>The Ports Collection provides support for building Qt 5 components themselves with <varname>USES+=qt-dist:5</varname>.
+	The distfile that should be built can be passed as a further argument if the <varname>PORTNAME</varname> does
+	  not match it.
+
+	<literal>qt-dist</literal> takes care of setting up the appropriate configuration environment for the port to build, and defining
+	  its <literal>DISTFILES</literal> and so on.
+
+	    </para>
+    </sect2>
+    <sect2 xml:id="qt-dist-examples">
+      <para>If the <literal>component-port</literal> is named the same as the distfile <literal>qt${component-port}-everywhere-src-${DISTVERSION}</literal> the framework will work with just including <literal>USES=qt-dist</literal>.</para>
+      <example xml:id="qt5-dist-example">
+	<title>Building Qt 5 Components</title>
+
+	<para>In this example, the port is Qt 5's <literal>networkauth</literal> component, which is part of the <literal>networkauth</literal> distfile.</para>
+	<programlisting>PORTNAME=	networkauth
+DISTVERSION=	${QT5_VERSION}
+USES=		qt-dist:5</programlisting>
+      </example>
+      <para>If the <literal>component-port</literal> is part of a split up distfile like <literal>qtbase-everywhere-src-${DISTVERSION}</literal> which is used for the components <literal>sql</literal>, <literal>buildtools</literal>,  <literal>concurrent</literal>,  <literal>core</literal>,  <literal>dbus</literal>,  <literal>qmake</literal>,  <literal>testlib</literal>,  <literal>opengl</literal>,  <literal>network</literal>,  <literal>printsupport</literal>,  <literal>xml</literal>,  <literal>gui</literal>,  <literal>widgets</literal>, the distname <literal>base</literal> is required as an argument.</para>
+
+      <example xml:id="qt5-dist-example-explicit">
+	<title>Building Qt 5 Components with different names</title>
+
+	<para>In this example, the port is Qt 5's <literal>gui</literal> component, which is part of the <literal>base</literal> distfile.</para>
+
+	<programlisting>PORTNAME=	gui
+DISTVERSION=i	${QT5_VERSION}
+USES=		qt-dist:5,base</programlisting>
+      </example>
+    </sect2>
+
+  </sect1>
+
   <sect1 xml:id="using-qt">
     <title>Using Qt</title>
 
