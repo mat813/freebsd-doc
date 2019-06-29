@@ -2785,7 +2785,7 @@ USE_PYQT=	core doc_build designer_run</programlisting>
 
       <para>The port is <application>Qt 5</application>'s
 	  <literal>networkauth</literal> component, which is part of
-	the <literal>networkauth</literal> distfile.</para>
+	the <literal>networkauth</literal> distribution file.</para>
 
       <programlisting>PORTNAME=	networkauth
 DISTVERSION=	${QT5_VERSION}
@@ -2794,15 +2794,15 @@ USES=		qt-dist:5</programlisting>
     </example>
 
     <para>If <varname>PORTNAME</varname> does not match the
-      distribution file name, the component name can be passed as an
-      argument to <literal>qt-dist</literal>.</para>
+      component name, it can be passed as an argument to
+      <literal>qt-dist</literal>.</para>
 
     <example xml:id="qt5-dist-example-explicit">
       <title>Building Qt 5 Components with Different Names</title>
 
       <para>The port is <application>Qt 5</application>'s
 	<literal>gui</literal> component, which is part of the
-	<literal>base</literal> distfile.</para>
+	<literal>base</literal> distribution file.</para>
 
       <programlisting>PORTNAME=	gui
 DISTVERSION=	${QT5_VERSION}
