@@ -5235,6 +5235,13 @@ Do you want to commit? (no = start a shell) [y/n]</screen>
 	      </listitem>
 
 	      <listitem>
+		<para>Fixing the fallout from updating another port.
+		  For example, updating some library, fixing ports
+		  depending on that library so they continue to build
+		  correctly.</para>
+	      </listitem>
+
+	      <listitem>
 		<para>Trivial and <emphasis>tested</emphasis> build
 		  and runtime fixes.</para>
 	      </listitem>
